@@ -20,15 +20,19 @@ public class MyGdxGame extends ApplicationAdapter {
 	
 	Sprite sprite;
 	
+	SpriteBatch batch;
+	
 	//OrthographicCamera camara;
 	
 	Stage escenario;
 	
 	@Override
 	public void create () {
+		batch = new SpriteBatch();
 		PuertaHorizontal puertaHorizontal = new PuertaHorizontal(new Texture(Gdx.files.internal("baldosa.png")), new Posicion(100, 100));
 		PuertaVertical puertaVertical = new PuertaVertical(new Texture(Gdx.files.internal("baldosa.png")), new Posicion(150, 150));
 		//camara = new OrthographicCamera(640, 480);
+		sprite = new Sprite(new Texture("stonebrick_mossyALT.png"));
 		escenario = new Stage();
 		escenario.addActor(puertaVertical);
 		escenario.addActor(puertaHorizontal);
@@ -40,6 +44,9 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void render () {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		batch.begin();
+		sprite.draw(batch);
+		batch.end();
 		escenario.act();
 		escenario.draw();
 	}
