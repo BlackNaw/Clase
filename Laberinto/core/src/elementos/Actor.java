@@ -1,7 +1,9 @@
 package elementos;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 
 import Interfaces.Actualizable;
 import Interfaces.Colisionable;
@@ -10,32 +12,37 @@ import Interfaces.Pintable;
 import comun.Posicion;
 import comun.Rectangulo;
 
-public class Actor extends Elemento implements Movible, Actualizable, Pintable, Colisionable {
+public class Actor extends Elemento implements Actualizable, Colisionable {
 
+	MoveToAction mover;
+	
 	public Actor(Posicion posicion, Texture imagen) {
 		super(posicion, imagen);
+		mover = new MoveToAction();
 	}
 	
-	public boolean enLimitesPantalla(Rectangulo mayor){
-		return cuerpo.contiene(mayor);
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
+		batch.draw(imagen, posicion.x, posicion.y);
 	}
-
+	
+	/**
+	 * Modificar la posicion y comprobar colision
+	 */
 	@Override
 	public boolean actualizar(Rectangulo cuerpo) {
-		mover(1);
-		
 		return comprobarColision(cuerpo);
 	}
 
 	@Override
-	public void mover(float sentido) {
-
+	public void act(float delta) {
+		super.act(delta);
+		moveBy(posicion.x, posicion.y);
 	}
 
-	@Override
-	public void pintar(SpriteBatch batch,float f) {
-		batch.draw(imagen, posicion.x, posicion.y);
-
+	public boolean enLimitesPantalla(Rectangulo mayor){
+		return cuerpo.contiene(mayor);
 	}
 
 	@Override

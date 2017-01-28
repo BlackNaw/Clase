@@ -2,17 +2,18 @@ package elementos;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Disposable;
 
 import comun.Posicion;
 import comun.Rectangulo;
 
-public class Elemento implements Disposable {
+public class Elemento extends Actor implements Disposable {
 
 public Posicion posicion;
 public Texture imagen;
-public Rectangulo cuerpo;
 public TextureRegion textureRegion;
+public Rectangulo cuerpo;
 
 public Elemento(){}
 
@@ -35,7 +36,6 @@ public Elemento(Posicion posicion, TextureRegion region) {
 public void dispose() {
 	if(imagen!=null){
 	imagen.dispose();
-	
 	}
 }
 
