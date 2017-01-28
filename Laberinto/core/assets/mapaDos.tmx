@@ -23,10 +23,10 @@
   </data>
  </layer>
  <objectgroup name="puertas">
-  <object id="15" x="742" y="420" width="84" height="222"/>
-  <object id="19" x="960" y="226" width="318" height="94"/>
-  <object id="21" x="1378" y="450" width="96" height="222"/>
-  <object id="22" x="1058" y="738" width="94" height="352"/>
+  <object id="15" name="PuertaVertical" x="742" y="420" width="84" height="222"/>
+  <object id="19" name="PuertaHorizontal" x="960" y="226" width="318" height="94"/>
+  <object id="21" name="PuertaVerticalDos" x="1378" y="450" width="96" height="222"/>
+  <object id="22" name="PuertaVerticalTres" x="1058" y="738" width="94" height="352"/>
   <object id="23" x="1280" y="-2" width="98" height="518"/>
   <object id="24" x="0" y="318.182" width="1024.24" height="96.9697"/>
   <object id="25" x="642.424" y="578.788" width="90.9091" height="506.061"/>
