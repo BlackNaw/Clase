@@ -12,27 +12,16 @@ import Interfaces.Pintable;
 import comun.Posicion;
 import comun.Rectangulo;
 
-public class Actor extends Elemento implements Actualizable, Colisionable {
-
-	MoveToAction mover;
+public class Actor extends Elemento implements Colisionable {
 	
 	public Actor(Posicion posicion, Texture imagen) {
 		super(posicion, imagen);
-		mover = new MoveToAction();
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		batch.draw(imagen, posicion.x, posicion.y);
-	}
-	
-	/**
-	 * Modificar la posicion y comprobar colision
-	 */
-	@Override
-	public boolean actualizar(Rectangulo cuerpo) {
-		return comprobarColision(cuerpo);
 	}
 
 	@Override
