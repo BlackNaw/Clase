@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="stonebrick_mossyALT" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="stonebrick_mossyALT.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="ammoc01" tilewidth="32" tileheight="32" tilecount="144" columns="12">
+  <tileoffset x="5" y="0"/>
+  <image source="ammoc01.jpg" width="400" height="400"/>
+  <terraintypes>
+   <terrain name="Nuevo Terreno" tile="-1"/>
+  </terraintypes>
+ </tileset>
+ <tileset firstgid="161" name="ammoc01 - copia" tilewidth="32" tileheight="32" tilecount="144" columns="12">
+  <image source="ammoc01 - copia.jpg" width="400" height="400"/>
+ </tileset>
+ <tileset firstgid="305" name="stone-wall-tiled-multiple" tilewidth="32" tileheight="32" tilecount="4624" columns="68">
+  <image source="stone-wall-tiled-multiple.png" width="2200" height="2200"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="60" height="34" offsetx="-133.333" offsety="-81.8182">
+  <data encoding="base64" compression="zlib">
+   eJzFWdmOwzAITNu0TZte//+164e1NDvitFn1AclYgdiYAYwPy7KsjQ6Nno1ejd6NPo2OjU7C/LXR1ujc6AL86VdPl1uJ7+ODMs8y2tj7z0r/wvmzsnaL3xs9Gt0a3YG/OnJ9fFbmWQZ1343/dl7Swbpvjg6J7+fM5747cn18U+ZZBnW/jP92PrL+p6ND4jXfeTtyffxU5lnG8meJj6w/igPEjOZ/mo7IWiUedUcwF9GbwW0fa76i6diWWoxoPhuxSQa3iAHJVzQdD2UvoxjRbBOJQxncPg27HQ0dlWd7IrvgOBKHsvjV7HYxZCvP9kp25vwv7WEGv5rd7oZsZfzbl79xkPO/tIcZ/Gpnka0DRuPfG+Z5LbswxzbJ4lc7i5E6YCT+IaakGNL3qdkkmyu1s8DvGTeV8Q8xJcWQLq/Z5Nv4zcY/LW5/iNds8m38Zu1n5arI3e7b+M3az8tVno9m69oIftlnK+3n5SrPR7360tr/f9XcM3KeT3v15ci9fzbnzMh5ZzDqv1bdO5tzZuS8M6jy58qcMyoXibtV/lyZc2Zyfeej9dWoP1fmnJlczz2BbH1lYRNlKnPOqFzED7L1FtbGko1QZg3onO3jZP2Av/XqLelOiftFmc04i6o+TtYP+FsPz3zfZBui3MPQNdPrtM48668enrEO9TC9GrpGe528f6+/7PmrZw+sQyVfwB7DZuga7XVG3qwy9YRnD6xDJV9AXXxHq+h1Rt6sovVShMe3RMkX8L8fQ9do3cX77z0X7T1w5n1hoznJF7iHVF13SXcijNGV7wsPmpNsyT2k6rpLuhNl4nO234Fzki25h1Rdd0l3Ipzz1v8DD2ZExg==
+  </data>
+ </layer>
+ <layer name="puertas" width="60" height="34" offsetx="-133.333" offsety="-81.8182">
+  <data encoding="base64" compression="zlib">
+   eJzt07ENACAMA0E2ZGNmo6WhBAVzJ6W19EVaAwAgzdhcKr3ZvfCCvlylrVP01tg6RW+NrRfoBar47T/1ZtObTW+2W70TjTYf4Q==
+  </data>
+ </layer>
+ <layer name="muros" width="60" height="34" offsetx="-133.333" offsety="-81.8182">
+  <data encoding="base64" compression="zlib">
+   eJztmEkOgkAQRathrZ5FHLfqmcRxq55JcNqqZ3L4LEggYQPpbjpd9ZK3ohf9w69QSuQus4BoDhdB2zexwwE5j/DEJO8TOV/wzSRvJyTqwl7Y9k3s0FdEERyotm9ihyVyxnDFJK+8X785I2cCUyZ5P8j5hT8meWV+/cbE/GZdGcIRHMMJnKpyl5o+r3O2ChPzm3VlDTdwC3dwr8pdavq8ztkqTPw+yrpygVd4g3f4UOUuNX1e56ytvC7DLa/gHvLN9BvZAf1GR5/zfhS7omPfiwy8Ax07YN6PYld07Huxgbw65jfvR7ErOva9xEBemV+/4fYfDLcdX+bXb2R+3eIPXbCC0g==
+  </data>
+ </layer>
+</map>

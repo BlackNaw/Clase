@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" nextobjectid="27">
+ <tileset firstgid="1" name="baldosa" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="baldosa.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="ammoc01" tilewidth="32" tileheight="32" tilecount="144" columns="12">
+  <image source="ammoc01.jpg" width="400" height="400"/>
+ </tileset>
+ <tileset firstgid="161" name="stone-wall-tiled-multiple" tilewidth="32" tileheight="32" tilecount="4624" columns="68">
+  <image source="stone-wall-tiled-multiple.png" width="2200" height="2200"/>
+ </tileset>
+ <tileset firstgid="4785" name="ammoc01 - copia" tilewidth="32" tileheight="32" tilecount="144" columns="12">
+  <image source="ammoc01 - copia.jpg" width="400" height="400"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJzt07kNwDAMwEA7/+/sP204RAABMgsWHOBqKWWgkSaqyX+mhVbaOvidDjrp6uBveqjR28FHe9KvfvWrX/3qV7/5P9qTfvWrX/3qV7/6zf/RnvSrX/3qV7/61W/+j/akX/3++R/ijkHd
+  </data>
+ </layer>
+ <layer name="puertas" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJzt1MEJgEAMRNHUYAl617vb/9WajGABgoPEyX8Q9rbsLEkiAADo65ielQvyeucF/mbOWu6zgzVrC13e6v+3Z43QvU/9f2rqvOr71NT9Vz0v8/tO9flVq97PwKX6HlJjD3nrlpf59UY/e6OfvX2Z9wR/TicI
+  </data>
+ </layer>
+ <objectgroup name="puertas">
+  <object id="15" x="742" y="420" width="84" height="222"/>
+  <object id="19" x="960" y="226" width="318" height="94"/>
+  <object id="21" x="1378" y="450" width="96" height="222"/>
+  <object id="22" x="1058" y="738" width="94" height="352"/>
+  <object id="23" x="1280" y="-2" width="98" height="518"/>
+  <object id="24" x="0" y="318.182" width="1024.24" height="96.9697"/>
+  <object id="25" x="642.424" y="578.788" width="90.9091" height="506.061"/>
+  <object id="26" x="1145.45" y="663.636" width="769.697" height="103.03"/>
+ </objectgroup>
+ <layer name="muros" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztlkkOAiEUBT/HcfZk6pWcXatXcvYQ1rZXhNBC5/erpFZs+AkFmHWbOz7wWXsjhRgGsxGOQ+2dlGHBnEtc9WTeM3Ne8NqTedWvb9Svb9RvHmvc4BZ3uMcDHvFUYD1G2/3erHlmXvjGD34LrMdou99BaJ6ZCU5xhvPw//UY6tc3en+FKIfuU9/oPk2j9v81ldx+a/9fU8ntt/b/NRX16xu9v75Rv75Rv75Rv93iB0+2lfU=
+  </data>
+ </layer>
+</map>
