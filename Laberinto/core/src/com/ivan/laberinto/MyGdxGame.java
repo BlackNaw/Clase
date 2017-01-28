@@ -13,26 +13,26 @@ import comun.Posicion;
 import elementos.PuertaHorizontal;
 import elementos.PuertaVertical;
 
-public class MyGdxGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	
+public class MyGdxGame extends ApplicationAdapter {	
 	//TODO: Comprobar si esta colisionando
 	//TODO: Poner la camara y actualizable
 	//TODO: ArrayList de textura de paredes
 	
 	Sprite sprite;
 	
-	OrthographicCamera camara;
+	//OrthographicCamera camara;
 	
 	Stage escenario;
 	
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
 		PuertaHorizontal puertaHorizontal = new PuertaHorizontal(new Texture(Gdx.files.internal("baldosa.png")), new Posicion(100, 100));
 		PuertaVertical puertaVertical = new PuertaVertical(new Texture(Gdx.files.internal("baldosa.png")), new Posicion(150, 150));
-		camara = new OrthographicCamera(640, 480);
+		//camara = new OrthographicCamera(640, 480);
 		escenario = new Stage();
+		escenario.addActor(puertaVertical);
+		escenario.addActor(puertaHorizontal);
+		//camara = (OrthographicCamera) escenario.getViewport().getCamera();
 		
 	}
 
@@ -40,12 +40,11 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void render () {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.end();
+		escenario.act();
+		escenario.draw();
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
 	}
 }

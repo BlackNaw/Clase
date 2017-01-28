@@ -38,7 +38,9 @@ public abstract class Puerta extends Elemento {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		batch.draw(imagen, posicion.x, posicion.y);
+		batch.draw(imagen, this.getX(), this.getY(), this.getOriginX(), this.getOriginY(), this.getWidth(),
+				this.getHeight(), this.getScaleX(), this.getScaleY(), this.getRotation(), 0, 0, imagen.getWidth(),
+				imagen.getHeight(), false, false);
 	}
 	
 	@Override

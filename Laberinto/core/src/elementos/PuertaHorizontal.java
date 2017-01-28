@@ -13,7 +13,7 @@ public class PuertaHorizontal extends Puerta {
 
 	@Override
 	protected void moviminetoAbrir() {
-		moverAbrir.setPosition(this.posicion.x - Constantes.MOVIMIENTO_PUERTA_ACCION, this.posicion.y);
+		moverAbrir.setPosition(this.posicion.x - Constantes.MOVIMIENTO_PUERTA, this.posicion.y);
 		moverAbrir.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
 	}
 
