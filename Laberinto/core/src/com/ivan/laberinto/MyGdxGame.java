@@ -25,9 +25,17 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	// TODO: ArrayList de textura de paredes
 
 	Sprite sprite;
+<<<<<<< HEAD
 
 	// OrthographicCamera camara;
 
+=======
+	
+	SpriteBatch batch;
+	
+	//OrthographicCamera camara;
+	
+>>>>>>> ff609ed0961f8ab3f02ffdbb62c1cfea29324c81
 	Stage escenario;
 
 	TiledMap tiledMap;
@@ -35,6 +43,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	TiledMapRenderer tiledMapRenderer;
 
 	@Override
+<<<<<<< HEAD
 	public void create() {
 		PuertaHorizontal puertaHorizontal = new PuertaHorizontal(new Texture(Gdx.files.internal("baldosa.png")),
 				new Posicion(100, 100));
@@ -45,6 +54,14 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	        tiledMap = new TmxMapLoader().load("mapaDos.tmx");
 	        tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 	        Gdx.input.setInputProcessor(this);
+=======
+	public void create () {
+		batch = new SpriteBatch();
+		PuertaHorizontal puertaHorizontal = new PuertaHorizontal(new Texture(Gdx.files.internal("baldosa.png")), new Posicion(100, 100));
+		PuertaVertical puertaVertical = new PuertaVertical(new Texture(Gdx.files.internal("baldosa.png")), new Posicion(150, 150));
+		//camara = new OrthographicCamera(640, 480);
+		sprite = new Sprite(new Texture("stonebrick_mossyALT.png"));
+>>>>>>> ff609ed0961f8ab3f02ffdbb62c1cfea29324c81
 		escenario = new Stage();
 		escenario.addActor(puertaVertical);
 		escenario.addActor(puertaHorizontal);
@@ -56,6 +73,7 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	public void render() {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+<<<<<<< HEAD
 		camera.update();
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
@@ -71,6 +89,13 @@ public class MyGdxGame extends ApplicationAdapter implements InputProcessor {
 	public boolean keyDown(int keycode) {
 		// TODO Auto-generated method stub
 		return false;
+=======
+		batch.begin();
+		sprite.draw(batch);
+		batch.end();
+		escenario.act();
+		escenario.draw();
+>>>>>>> ff609ed0961f8ab3f02ffdbb62c1cfea29324c81
 	}
 
 	@Override
