@@ -129,21 +129,15 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void render() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		/*if (!comprobarColisionLimites())  {
+		if (!comprobarColisionLimites())  {
 			Sondeo.detectar(actor, false);
 		} else {
 			Sondeo.detectar(actor, true);
-<<<<<<< HEAD
 		}
 		
 		if (actor.comprobarColision(new Rectangulo(modeda.posicion, ((AtlasRegion)modeda.animation.getKeyFrames()[0]).getRegionWidth(), ((AtlasRegion)modeda.animation.getKeyFrames()[0]).getRegionHeight()))) {
 			modeda.colocar();
 		}
-=======
-		}*/
-
-		Sondeo.detectar(actor, comprobarColisionLimites());
->>>>>>> origin/master
 		
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
