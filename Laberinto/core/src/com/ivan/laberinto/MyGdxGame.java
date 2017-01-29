@@ -28,6 +28,7 @@ import elementos.Puerta;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import comun.AnimationE;
+import comun.Moneda;
 import comun.Posicion;
 import comun.Rectangulo;
 import comun.Sondeo;
@@ -57,6 +58,8 @@ public class MyGdxGame extends ApplicationAdapter {
 	ArrayList<Rectangulo> muro = new ArrayList<Rectangulo>();
 
 	ArrayList<Puerta> puertas = new ArrayList<Puerta>();
+	
+	//Moneda modeda = new Moneda(new Posicion(), animation)
 
 	@Override
 	public void create() {

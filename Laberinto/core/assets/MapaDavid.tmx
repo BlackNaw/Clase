@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="55" tilewidth="32" tileheight="32" nextobjectid="62">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="55" tilewidth="32" tileheight="32" nextobjectid="72">
  <tileset firstgid="1" name="baldosa" tilewidth="32" tileheight="32" tilecount="16" columns="4">
   <image source="baldosa.png" width="128" height="128"/>
  </tileset>
@@ -34,6 +34,14 @@
   <object id="58" name="MuroSeis" x="990.909" y="1090.91" width="896.97" height="96.9697"/>
   <object id="59" name="MuroSiete" x="1306.06" y="1348.48" width="106.061" height="372.727"/>
   <object id="60" name="MuroOcho" x="1151.52" y="927.273" width="103.03" height="163.636"/>
+  <object id="63" name="RespawnUno" x="84.8485" y="84.8485" width="806.061" height="181.818"/>
+  <object id="64" name="RespawnDos" x="100" y="463.636" width="466.667" height="551.515"/>
+  <object id="66" name="RespawnTres" x="1436.36" y="72.7273" width="387.879" height="212.121"/>
+  <object id="67" name="RespawnCuatro" x="1387.88" y="915.152" width="445.455" height="133.333"/>
+  <object id="68" name="RespawnCinco" x="1466.67" y="1545.45" width="342.424" height="115.152"/>
+  <object id="69" name="RespawnSiete" x="815.152" y="1242.42" width="406.061" height="403.03"/>
+  <object id="70" name="RespawnOcho" x="87.8788" y="1233.33" width="421.212" height="278.788"/>
+  <object id="71" x="1636.36" y="1609.09"/>
  </objectgroup>
  <layer name="muros" width="60" height="55">
   <data encoding="base64" compression="zlib">
