@@ -17,7 +17,7 @@ import comun.Rectangulo;
 public class Actor extends Elemento implements Colisionable {
 	float elapsedTime=0;
 	
-	public Actor(Posicion posicion, /*Texture imagen*/ Animation animation) {
+	public Actor(Posicion posicion, Animation animation) {
 		super(posicion, animation);
 	}
 	
