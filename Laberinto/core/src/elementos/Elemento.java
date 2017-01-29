@@ -1,6 +1,8 @@
 package elementos;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Disposable;
@@ -13,6 +15,7 @@ public class Elemento extends Actor implements Disposable {
 public Posicion posicion;
 public Texture imagen;
 public TextureRegion textureRegion;
+public Animation animation;
 public Rectangulo cuerpo;
 
 public Elemento(){}
@@ -22,6 +25,15 @@ public Elemento(Posicion posicion, Texture imagen) {
 	this.posicion = posicion;
 	this.imagen = imagen;
 	cuerpo = new Rectangulo(this.posicion, imagen.getWidth(), imagen.getHeight());
+}
+
+public Elemento(Posicion posicion, Animation animation) {
+	super();
+	this.posicion = posicion;
+	this.animation = animation;
+	//((AtlasRegion)animacion.getKeyFrames()[0]).getRegionHeight()
+	//cuerpo = new Rectangulo(this.posicion, animation.getWidth(), animation.getHeight());
+	cuerpo = new Rectangulo(this.posicion, ((AtlasRegion)animation.getKeyFrames()[0]).getRegionWidth(), ((AtlasRegion)animation.getKeyFrames()[0]).getRegionHeight());
 }
 
 

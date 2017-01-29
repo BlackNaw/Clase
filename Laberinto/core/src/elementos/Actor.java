@@ -1,8 +1,10 @@
 package elementos;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 
 import Interfaces.Actualizable;
@@ -13,15 +15,17 @@ import comun.Posicion;
 import comun.Rectangulo;
 
 public class Actor extends Elemento implements Colisionable {
+	float elapsedTime=0;
 	
-	public Actor(Posicion posicion, Texture imagen) {
-		super(posicion, imagen);
+	public Actor(Posicion posicion, /*Texture imagen*/ Animation animation) {
+		super(posicion, animation);
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		batch.draw(imagen, posicion.x, posicion.y);
+		//batch.draw((TextureRegion)animation.getKeyFrame(elapsedTime, true), 0, 0);
+		batch.draw((TextureRegion)animation.getKeyFrame(elapsedTime, true), posicion.x, posicion.y);
 	}
 
 	@Override

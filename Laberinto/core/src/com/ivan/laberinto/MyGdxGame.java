@@ -27,6 +27,7 @@ import elementos.Puerta;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+import comun.AnimationE;
 import comun.Posicion;
 import comun.Rectangulo;
 import comun.Sondeo;
@@ -62,7 +63,8 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		pantalla = new Texture("stone-wall-tiled-multiple.png");
 		sprite = new Sprite(pantalla);
-		actor = new Actor(new Posicion(100, 100), new Texture(Gdx.files.internal("hansito/hansitoUp.png")));
+		//actor = new Actor(new Posicion(100, 100), new Texture(Gdx.files.internal("hansito/hansitoUp.png")));
+		actor=new Actor(new Posicion(100, 100), AnimationE.getAnimation(AnimationE.up));
 		escenario = new Stage();
 		escenario.addActor(actor);
 		camara = new OrthographicCamera(Gdx.graphics.getWidth() * 2, Gdx.graphics.getHeight() * 2);
