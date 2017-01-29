@@ -29,7 +29,6 @@ public abstract class Puerta extends Elemento {
 		setBounds(this.posicion.x, this.posicion.y, imagen.getWidth(), imagen.getHeight());
 		moverCerrar.setPosition(this.posicion.x, this.posicion.y);
 		moverCerrar.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
-		moviminetoAbrir();
 		repeticion.setCount(RepeatAction.FOREVER);
 		repeticion.setAction(secuencia);
 		this.addAction(repeticion);
@@ -48,8 +47,8 @@ public abstract class Puerta extends Elemento {
 		for (Iterator<Action> iter = this.getActions().iterator(); iter.hasNext();) {
 			iter.next().act(delta);
 		}
+		posicion.x = (int) this.getX();
+		posicion.y = (int) this.getY();
 	}
-
-	protected abstract void moviminetoAbrir();
 	
 }

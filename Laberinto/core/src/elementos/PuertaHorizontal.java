@@ -11,8 +11,12 @@ public class PuertaHorizontal extends Puerta {
 		super(imagen, posicion);
 	}
 
-	@Override
-	protected void moviminetoAbrir() {
+	public void moviminetoAbrirDerecha() {
+		moverAbrir.setPosition(this.posicion.x + imagen.getWidth(), this.posicion.y);
+		moverAbrir.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
+	}
+	
+	public void moviminetoAbrirIzquierda() {
 		moverAbrir.setPosition(this.posicion.x - imagen.getWidth(), this.posicion.y);
 		moverAbrir.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
 	}

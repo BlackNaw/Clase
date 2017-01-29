@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="55" tilewidth="32" tileheight="32" nextobjectid="62">
  <tileset firstgid="1" name="baldosa" tilewidth="32" tileheight="32" tilecount="16" columns="4">
-  <image source="baldosa.png" width="128" height="128"/>
+  <image source="H:/asignaturas/Jose/VideoJuegos/EjerciciosClase/Github/Clase/Laberinto/core/assets/baldosa.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="17" name="ammoc01" tilewidth="32" tileheight="32" tilecount="144" columns="12">
-  <image source="ammoc01.jpg" width="400" height="400"/>
+  <image source="H:/asignaturas/Jose/VideoJuegos/EjerciciosClase/Github/Clase/Laberinto/core/assets/ammoc01.jpg" width="400" height="400"/>
  </tileset>
  <tileset firstgid="161" name="stone-wall-tiled-multiple" tilewidth="32" tileheight="32" tilecount="4624" columns="68">
-  <image source="stone-wall-tiled-multiple.png" width="2200" height="2200"/>
+  <image source="H:/asignaturas/Jose/VideoJuegos/EjerciciosClase/Github/Clase/Laberinto/core/assets/stone-wall-tiled-multiple.png" width="2200" height="2200"/>
  </tileset>
  <tileset firstgid="4785" name="ammoc01 - copia" tilewidth="32" tileheight="32" tilecount="144" columns="12">
-  <image source="ammoc01 - copia.jpg" width="400" height="400"/>
+  <image source="H:/asignaturas/Jose/VideoJuegos/EjerciciosClase/Github/Clase/Laberinto/core/assets/ammoc01 - copia.jpg" width="400" height="400"/>
  </tileset>
  <layer name="Capa de Patrones 1" width="60" height="55">
   <data encoding="base64" compression="zlib">

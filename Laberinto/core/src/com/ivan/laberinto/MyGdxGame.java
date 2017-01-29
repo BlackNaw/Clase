@@ -1,5 +1,7 @@
 package com.ivan.laberinto;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -10,13 +12,19 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Polyline;
+
 import elementos.Actor;
+import elementos.Elemento;
+import elementos.Puerta;
+
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import comun.Posicion;
@@ -30,7 +38,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	// TODO: Poner la camara y actualizable
 
 	TiledMapRenderer tiledMapRenderer;
-	
+
 	TiledMap tiledMap;
 
 	Sprite sprite;
@@ -42,8 +50,12 @@ public class MyGdxGame extends ApplicationAdapter {
 	OrthographicCamera camara;
 
 	Actor actor;
-	
+
 	Texture pantalla;
+
+	ArrayList<Rectangulo> muro = new ArrayList<Rectangulo>();
+
+	ArrayList<Puerta> puertas = new ArrayList<Puerta>();
 
 	@Override
 	public void create() {
@@ -63,13 +75,33 @@ public class MyGdxGame extends ApplicationAdapter {
 			if (elemento.getName() != null) {
 				int x = (int) ((RectangleMapObject) elemento).getRectangle().x;
 				int y = (int) ((RectangleMapObject) elemento).getRectangle().y;
-				if (elemento.getName().startsWith("PuertaHorizontal")) {
-					escenario.addActor(
-							new PuertaHorizontal(new Texture("muroHorizontalMediano.jpg"), new Posicion(x, y)));
-					elemento.setVisible(false);
-				} else if (elemento.getName().startsWith("PuertaVertical")) {
-					escenario.addActor(new PuertaVertical(new Texture("muroVerticalMediano.jpg"), new Posicion(x, y)));
-					elemento.setVisible(true);
+				int alto = (int) ((RectangleMapObject) elemento).getRectangle().height;
+				int ancho = (int) ((RectangleMapObject) elemento).getRectangle().width;
+				if (elemento.getName().startsWith("PuertaHorizontalDerecha")) {
+					PuertaHorizontal puerta = new PuertaHorizontal(new Texture("muroHorizontalMediano.jpg"),
+							new Posicion(x, y));
+					puerta.moviminetoAbrirDerecha();
+					escenario.addActor(puerta);
+					puertas.add(puerta);
+				} else if (elemento.getName().startsWith("PuertaHorizontalIzquierda")) {
+					PuertaHorizontal puerta = new PuertaHorizontal(new Texture("muroHorizontalMediano.jpg"),
+							new Posicion(x, y));
+					puerta.moviminetoAbrirIzquierda();
+					escenario.addActor(puerta);
+					puertas.add(puerta);
+				} else if (elemento.getName().startsWith("PuertaVerticalArriba")) {
+					PuertaVertical puerta = new PuertaVertical(new Texture("muroVerticalMediano.jpg"),
+							new Posicion(x, y));
+					puerta.moviminetoAbrirArriba();
+					escenario.addActor(puerta);
+					puertas.add(puerta);
+				} else if (elemento.getName().startsWith("PuertaVerticalAbajo")) {
+					PuertaVertical puerta = new PuertaVertical(new Texture("muroVerticalMediano.jpg"),new Posicion(x, y));
+					puerta.moviminetoAbrirAbajo();
+					escenario.addActor(puerta);
+					puertas.add(puerta);
+				} else if (elemento.getName().startsWith("Muro")) {
+					muro.add(new Rectangulo(new Posicion(x, y), ancho, alto));
 				}
 			}
 		}
@@ -78,13 +110,25 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	@Override
 	public void render() {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		if (actor.enLimitesPantalla(new Rectangulo(new Posicion(0, 0), pantalla.getWidth(), pantalla.getHeight()))) {
 			Sondeo.detectar(actor, false);
-		}else {
+		} else {
 			Sondeo.detectar(actor, true);
 		}
+		for (Rectangulo rectangulo : muro) {
+			if (actor.comprobarColision(rectangulo)) {
+				System.out.println("has chocao con un muro");
+			}
+		}
+		
+		for (Puerta puerta : puertas) {
+			if (actor.comprobarColision(new Rectangulo(puerta.posicion, puerta.imagen.getWidth(), puerta.imagen.getHeight()))) {
+				System.out.println("has chocao con una puerta");
+			}
+		}
+		
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
 		camara.update();
@@ -101,7 +145,7 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	@Override
 	public void dispose() {
-		
+
 	}
 	//
 	// @Override
