@@ -7,12 +7,13 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
+import com.badlogic.gdx.math.Rectangle;
 
 import elementos.Elemento;
 
 public class Moneda extends Elemento{
 
-	ArrayList<RectangleMapObject> respawn = new ArrayList<RectangleMapObject>();
+	public ArrayList<Rectangle> respawn = new ArrayList<Rectangle>();
 	
 	public Moneda(Posicion posicion, Animation animation) {
 		super(posicion, animation);
@@ -25,11 +26,13 @@ public class Moneda extends Elemento{
 	}
 	
 	public void colocar() {
-		RectangleMapObject respawn = this.respawn.get(new Random().nextInt(this.respawn.size()));
-		int x =  (int) ((Math.random()*respawn.getRectangle().x) + (respawn.getRectangle().x + respawn.getRectangle().getWidth()));
-		int y =  (int) ((Math.random()*respawn.getRectangle().y) + (respawn.getRectangle().y + respawn.getRectangle().getWidth()));
+		Rectangle respawn = this.respawn.get(new Random().nextInt(this.respawn.size()));
+		int x =  (int) Math.random() * (int)((respawn.x + respawn.getWidth()) - respawn.x) + (int)  respawn.x;
+		int y =   (int) Math.random() * (int)((respawn.y + respawn.getWidth()) - respawn.y) + (int)  respawn.y;
 		this.posicion.x = x;
 		this.posicion.y = y;
+		System.out.println("x " + posicion.x);
+		System.out.println(posicion.y);
 	}
 	
 }

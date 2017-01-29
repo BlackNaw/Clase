@@ -9,8 +9,11 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -20,6 +23,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Polyline;
+import com.badlogic.gdx.math.Rectangle;
 
 import elementos.Actor;
 import elementos.Elemento;
@@ -59,17 +63,20 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	ArrayList<Puerta> puertas = new ArrayList<Puerta>();
 	
-	//Moneda modeda = new Moneda(new Posicion(), animation)
+	Moneda modeda;
 
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		pantalla = new Texture("stone-wall-tiled-multiple.png");
 		sprite = new Sprite(pantalla);
+		Animation animacion = new Animation(1 / 30f,new TextureAtlas(Gdx.files.internal("coinAtlas/COIN.atlas")).findRegions("COIN"));
+		modeda = new Moneda(new Posicion(), animacion);
 		//actor = new Actor(new Posicion(100, 100), new Texture(Gdx.files.internal("hansito/hansitoUp.png")));
 		actor=new Actor(new Posicion(100, 100), AnimationE.getAnimation(AnimationE.up));
 		escenario = new Stage();
 		escenario.addActor(actor);
+		escenario.addActor(modeda);
 		camara = new OrthographicCamera(Gdx.graphics.getWidth() * 2, Gdx.graphics.getHeight() * 2);
 		camara = (OrthographicCamera) escenario.getViewport().getCamera();
 		// ------------IVAN---------------------
@@ -107,9 +114,14 @@ public class MyGdxGame extends ApplicationAdapter {
 					puertas.add(puerta);
 				} else if (elemento.getName().startsWith("Muro")) {
 					muro.add(new Rectangulo(new Posicion(x, y), ancho, alto));
+				}else if(elemento.getName().startsWith("Respawn")){
+					Rectangle rectangulo = ((RectangleMapObject) elemento).getRectangle();
+					modeda.respawn.add(rectangulo);
 				}
 			}
 		}
+
+		modeda.colocar();
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 	}
 
@@ -123,6 +135,9 @@ public class MyGdxGame extends ApplicationAdapter {
 			Sondeo.detectar(actor, true);
 		}
 		
+		if (actor.comprobarColision(new Rectangulo(modeda.posicion, ((AtlasRegion)modeda.animation.getKeyFrames()[0]).getRegionWidth(), ((AtlasRegion)modeda.animation.getKeyFrames()[0]).getRegionHeight()))) {
+			modeda.colocar();
+		}
 		
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
