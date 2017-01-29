@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="34" tilewidth="32" tileheight="32" nextobjectid="32">
+ <tileset firstgid="1" name="baldosa" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="baldosa.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="ammoc01" tilewidth="32" tileheight="32" tilecount="144" columns="12">
+  <image source="ammoc01.jpg" width="400" height="400"/>
+ </tileset>
+ <tileset firstgid="161" name="stone-wall-tiled-multiple" tilewidth="32" tileheight="32" tilecount="4624" columns="68">
+  <image source="stone-wall-tiled-multiple.png" width="2200" height="2200"/>
+ </tileset>
+ <tileset firstgid="4785" name="ammoc01 - copia" tilewidth="32" tileheight="32" tilecount="144" columns="12">
+  <image source="ammoc01 - copia.jpg" width="400" height="400"/>
+ </tileset>
+ <layer name="Capa de Patrones 1" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJzt2L0Ng0AQROEFbIx/oQ3TNfSG6/AEJ3ENWFg7L3jBEJB9OmmbiGhVp06qSb7PqlcXNRjsq7qpu3oY7Kd6qVFNBvtoT/jFL37xi9//9LuoteTgd1OfkoPftz7MJfzm88v7m9sv7y9+8Ytf/OIXv/n30Z7wi1/85vG7xH7jcfC7xX7jcfBb3+8c/Nb3Owe/9f3uF///AuC7T90=
+  </data>
+ </layer>
+ <objectgroup name="Puertas">
+  <object id="28" name="PuertaVerticalUno" x="640" y="415" width="95" height="158"/>
+  <object id="29" name="PuertaHorizontalUno" x="1121" y="320" width="156" height="96"/>
+  <object id="30" name="PuertaVerticalDos" x="1151" y="767" width="97" height="162"/>
+  <object id="31" name="PuertaVerticalTres" x="1281" y="511" width="95" height="159"/>
+ </objectgroup>
+ <layer name="muros" width="60" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztlkkOAiEUBT/HcfZk6pWcXatXcvYQ1rZXhNBC5/erpFZs+AkFmHWbOz7wWXsjhRgGsxGOQ+2dlGHBnEtc9WTeM3Ne8NqTedWvb9Svb9RvHmvc4BZ3uMcDHvFUYD1G2/3erHlmXvjGD34LrMdou99BaJ6ZCU5xhvPw//UY6tc3en+FKIfuU9/oPk2j9v81ldx+a/9fU8ntt/b/NRX16xu9v75Rv75Rv75Rv93iB0+2lfU=
+  </data>
+ </layer>
+</map>

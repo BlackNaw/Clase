@@ -57,8 +57,8 @@ public class MyGdxGame extends ApplicationAdapter {
 		camara = (OrthographicCamera) escenario.getViewport().getCamera();
 		// ------------IVAN---------------------
 		// Gdx.input.setInputProcessor(this);
-		tiledMap = new TmxMapLoader().load("mapaDos.tmx");
-		for (MapObject elemento : tiledMap.getLayers().get(2).getObjects()) {
+		tiledMap = new TmxMapLoader().load("MapaDavid.tmx");
+		for (MapObject elemento : tiledMap.getLayers().get(1).getObjects()) {
 			System.out.print(elemento.getName());
 			if (elemento.getName() != null) {
 				int x = (int) ((RectangleMapObject) elemento).getRectangle().x;
