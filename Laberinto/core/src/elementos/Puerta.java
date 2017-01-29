@@ -26,7 +26,7 @@ public abstract class Puerta extends Elemento {
 	
 	public Puerta(Texture imagen, Posicion posicion) {
 		super(posicion, imagen);
-		setBounds(this.posicion.x, this.posicion.y, this.imagen.getWidth(), this.imagen.getHeight());
+		setBounds(this.posicion.x, this.posicion.y, imagen.getWidth(), imagen.getHeight());
 		moverCerrar.setPosition(this.posicion.x, this.posicion.y);
 		moverCerrar.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
 		moviminetoAbrir();

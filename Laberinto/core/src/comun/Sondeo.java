@@ -14,72 +14,28 @@ public class Sondeo {
 	static Texture right = new Texture(Gdx.files.internal("hansito/hansitoRight.png"));
 
 	static Direccion direccion;
-
-	static void anularDireccion(Direccion direccion){
-		if(Direccion.norte == direccion){
-			direccion.norte.setDireccion(false);
-			direccion.sur.setDireccion(true);
-			direccion.este.setDireccion(true);
-			direccion.oeste.setDireccion(true);
-		}if(Direccion.sur == direccion){
-			direccion.norte.setDireccion(true);
-			direccion.sur.setDireccion(false);
-			direccion.este.setDireccion(true);
-			direccion.oeste.setDireccion(true);
-		}if(Direccion.este == direccion){
-			direccion.norte.setDireccion(true);
-			direccion.sur.setDireccion(true);
-			direccion.este.setDireccion(false);
-			direccion.oeste.setDireccion(true);
-		}if(Direccion.oeste == direccion){
-			direccion.norte.setDireccion(true);
-			direccion.sur.setDireccion(true);
-			direccion.este.setDireccion(true);
-			direccion.oeste.setDireccion(false);
-		}
-	}
 	
 	public static void detectar(Actor actor, boolean salido) {
 
 		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-			if (direccion.oeste.direccionValida) {
-				if(salido){
-					anularDireccion(Direccion.oeste);
-				}
-				actor.posicion.x--;
+				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.imagen = left;
 				direccion = Direccion.oeste;
-			}
 		}
 		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-			if (direccion.este.direccionValida) {
-				if(salido){
-					anularDireccion(Direccion.este);
-				}
-				actor.posicion.x++;
+				actor.posicion.x += Constantes.VELOCIDAD_PERSONAJE;
 				actor.imagen = right;
 				direccion = Direccion.este;
-			}
 		}
 		if (Gdx.input.isKeyPressed(Keys.UP)) {
-			if (direccion.norte.direccionValida) {
-				if(salido){
-					anularDireccion(Direccion.norte);
-				}
-				actor.posicion.y++;
+				actor.posicion.y += Constantes.VELOCIDAD_PERSONAJE;
 				actor.imagen = up;
 				direccion = Direccion.norte;
-			}
 		}
 		if (Gdx.input.isKeyPressed(Keys.DOWN)) {
-			if (direccion.sur.direccionValida) {
-				if(salido){
-					anularDireccion(Direccion.sur);
-				}
-				actor.posicion.y--;
+				actor.posicion.y -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.imagen = down;
 				direccion = Direccion.sur;
-			}
 		}
 	}
 }

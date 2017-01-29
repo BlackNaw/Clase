@@ -6,14 +6,14 @@ import comun.Constantes;
 import comun.Posicion;
 
 public class PuertaHorizontal extends Puerta {
-
+	
 	public PuertaHorizontal(Texture imagen, Posicion posicion) {
 		super(imagen, posicion);
 	}
 
 	@Override
 	protected void moviminetoAbrir() {
-		moverAbrir.setPosition(this.posicion.x - Constantes.MOVIMIENTO_PUERTA, this.posicion.y);
+		moverAbrir.setPosition(this.posicion.x - imagen.getWidth(), this.posicion.y);
 		moverAbrir.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
 	}
 

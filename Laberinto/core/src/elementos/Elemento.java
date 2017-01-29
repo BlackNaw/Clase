@@ -32,6 +32,12 @@ public Elemento(Posicion posicion, TextureRegion region) {
 	cuerpo = new Rectangulo(this.posicion, 0, 0);
 }
 
+public Elemento(Posicion posicion, int ancho, int alto) {
+	super();
+	this.posicion = posicion;
+	cuerpo = new Rectangulo(this.posicion, ancho, alto);
+}
+
 @Override
 public void dispose() {
 	if(imagen!=null){
