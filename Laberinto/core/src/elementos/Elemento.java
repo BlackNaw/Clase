@@ -37,10 +37,9 @@ public Elemento(Posicion posicion, Animation animation) {
 }
 
 
-public Elemento(Posicion posicion, TextureRegion region) {
+public Elemento(Posicion posicion) {
 	super();
 	this.posicion = posicion;
-	this.textureRegion = region;
 	cuerpo = new Rectangulo(this.posicion, 0, 0);
 }
 

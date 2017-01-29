@@ -25,7 +25,7 @@
   <object id="32" name="PuertaHorizontalIzquierdaDos" x="990.667" y="994.667" width="158.667" height="92"/>
   <object id="33" name="PuertaVerticalAbajoTres" x="545.333" y="1406.67" width="93.3333" height="160"/>
   <object id="38" name="PuertaVerticalArribaCuatro" x="1408" y="1344" width="96" height="160"/>
-  <object id="51" name="muroLimites" x="36.3636" y="36.3636" width="1848.48" height="1687.88"/>
+  <object id="51" name="Pantalla" x="36.3636" y="36.3636" width="1848.48" height="1687.88"/>
   <object id="53" name="MuroUno" x="33.3333" y="318.182" width="1084.85" height="100"/>
   <object id="54" name="MuroDos" x="36.3636" y="1087.88" width="790.909" height="93.9394"/>
   <object id="55" name="MuroTres" x="636.364" y="578.788" width="100" height="984.848"/>
