@@ -114,22 +114,12 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void render() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		if (actor.enLimitesPantalla(new Rectangulo(new Posicion(0, 0), pantalla.getWidth(), pantalla.getHeight()))) {
+		if (!comprobarColisionLimites())  {
 			Sondeo.detectar(actor, false);
 		} else {
 			Sondeo.detectar(actor, true);
 		}
-		for (Rectangulo rectangulo : muro) {
-			if (actor.comprobarColision(rectangulo)) {
-				System.out.println("has chocao con un muro");
-			}
-		}
 		
-		for (Puerta puerta : puertas) {
-			if (actor.comprobarColision(new Rectangulo(puerta.posicion, puerta.imagen.getWidth(), puerta.imagen.getHeight()))) {
-				System.out.println("has chocao con una puerta");
-			}
-		}
 		
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
@@ -143,6 +133,23 @@ public class MyGdxGame extends ApplicationAdapter {
 		tiledMapRenderer.render();
 		escenario.act();
 		escenario.draw();
+	}
+
+	protected boolean comprobarColisionLimites() {
+		for (Rectangulo rectangulo : muro) {
+			if (actor.comprobarColision(rectangulo)) {
+				System.out.println("has chocao con un muro");
+				return true;
+			}
+		}
+		
+		for (Puerta puerta : puertas) {
+			if (actor.comprobarColision(new Rectangulo(puerta.posicion, puerta.imagen.getWidth(), puerta.imagen.getHeight()))) {
+				System.out.println("has chocao con una puerta");
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override

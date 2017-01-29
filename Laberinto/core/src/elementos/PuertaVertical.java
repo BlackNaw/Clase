@@ -1,5 +1,7 @@
 package elementos;
 
+import java.util.Random;
+
 import com.badlogic.gdx.graphics.Texture;
 
 import comun.Constantes;
@@ -13,12 +15,13 @@ public class PuertaVertical extends Puerta{
 
 	public void moviminetoAbrirArriba() {
 		moverAbrir.setPosition(this.posicion.x, this.posicion.y + imagen.getHeight());
-		moverAbrir.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
+		
+		moverAbrir.setDuration(generarNumero());
 	}
 	
 	public void moviminetoAbrirAbajo() {
 		moverAbrir.setPosition(this.posicion.x, this.posicion.y - imagen.getHeight());
-		moverAbrir.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
+		moverAbrir.setDuration(generarNumero());
 	}
 
 }

@@ -1,6 +1,7 @@
 package elementos;
 
 import java.util.Iterator;
+import java.util.Random;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -28,7 +29,7 @@ public abstract class Puerta extends Elemento {
 		super(posicion, imagen);
 		setBounds(this.posicion.x, this.posicion.y, imagen.getWidth(), imagen.getHeight());
 		moverCerrar.setPosition(this.posicion.x, this.posicion.y);
-		moverCerrar.setDuration(Constantes.MOVIMIENTO_PUERTA_ACCION);
+		moverCerrar.setDuration(generarNumero());
 		repeticion.setCount(RepeatAction.FOREVER);
 		repeticion.setAction(secuencia);
 		this.addAction(repeticion);
@@ -49,6 +50,14 @@ public abstract class Puerta extends Elemento {
 		}
 		posicion.x = (int) this.getX();
 		posicion.y = (int) this.getY();
+	}
+	
+	public float generarNumero() {
+		float numero = (float)new Random().nextInt(3);
+		if (numero < 1 ) {
+			numero = 1;
+		}
+		return numero;
 	}
 	
 }
