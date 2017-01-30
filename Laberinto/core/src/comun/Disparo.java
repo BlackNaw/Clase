@@ -18,20 +18,22 @@ public class Disparo extends Elemento {
 
 	private float elapsedTime;
 
+	private int anchoRecorrido;
+	
 	MoveByAction mover = new MoveByAction();
 	
-	private int anchoRecorrido;
+	private boolean horizontal = true;
 
-	public Disparo(Posicion posicion, int ancho,String trampa) {
+	public Disparo(Posicion posicion, int ancho, int alto, String trampa) {
 		super(posicion, new Animation(1 / 30f, new TextureAtlas(Gdx.files.internal("disparo/disparo.atlas"))
 				.findRegions("Custom Edited - Mario Customs - Bullet Bill")));
-		generarMovimiento(trampa, ancho);
+		generarMovimiento(trampa, ancho, alto);
 		mover.setDuration(generarNumero());
 		System.out.println("creado");
 		this.addAction(mover);
 	}
 	
-	private void generarMovimiento(String trampa, int ancho) {
+	private void generarMovimiento(String trampa, int ancho, int alto) {
 		if (trampa.startsWith("TrampaDerecha")) {
 			this.setX(posicion.x);
 			this.setY(posicion.y);
@@ -40,13 +42,21 @@ public class Disparo extends Elemento {
 		} else if (trampa.startsWith("TrampaIzquierda")) {
 			this.setX(posicion.x + ancho);
 			this.setY(posicion.y);
-			anchoRecorrido = ancho - posicion.x;
-			mover.setAmountX(posicion.x + ancho);
-		}/* else if (trampa.startsWith("TrampaArriba")) {
-			mover.setPosition(this.posicion.x, this.posicion.y + imagen.getHeight());
+			anchoRecorrido = posicion.x;
+			mover.setAmountX(ancho - posicion.x);
+		} else if (trampa.startsWith("TrampaArriba")) {
+			this.setX(posicion.x);
+			this.setY(posicion.y);
+			anchoRecorrido = alto + posicion.y;
+			mover.setAmountY(alto);
+			horizontal = false;
 		} else if (trampa.startsWith("TrampaAbajo")) {
-			mover.setPosition(this.posicion.x, this.posicion.y - imagen.getHeight());
-		}*/
+			this.setX(posicion.x);
+			this.setY(posicion.y + alto);
+			anchoRecorrido = posicion.y - alto;
+			mover.setAmountY(alto - posicion.y);
+			horizontal = false;
+		}
 	}
 	
 	@Override
@@ -64,7 +74,14 @@ public class Disparo extends Elemento {
 	}
 
 	public boolean accionFinalizada() {
-		return posicion.x >= (anchoRecorrido - 10);
+		if(horizontal){
+			System.out.println(posicion.x +" ");
+			System.out.print(anchoRecorrido);
+			return posicion.x <= (anchoRecorrido - 10);
+		}else {
+			return posicion.y <= (anchoRecorrido - 10);
+		}
+	
 	}
 	
 	public float generarNumero() {

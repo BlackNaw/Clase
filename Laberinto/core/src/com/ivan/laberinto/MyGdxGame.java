@@ -130,7 +130,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		for (Entry<Rectangulo, String> trampa : trampas.entrySet()) {
 			if (actor.comprobarColision(trampa.getKey())) {
 				if (!(disparos.size() >= 1)) {
-					Disparo disparo = new Disparo(new Posicion(trampa.getKey().posicion.x, trampa.getKey().posicion.y), trampa.getKey().ancho,trampa.getValue());
+					Disparo disparo = new Disparo(new Posicion(trampa.getKey().posicion.x, trampa.getKey().posicion.y), trampa.getKey().ancho, trampa.getKey().alto,trampa.getValue());
 					disparos.add(disparo);
 					escenario.addActor(disparo);
 				}
