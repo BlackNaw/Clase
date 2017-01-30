@@ -1,6 +1,8 @@
 package com.ivan.laberinto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -32,7 +34,7 @@ import elementos.Puerta;
 
 public class MyGdxGame extends ApplicationAdapter {
 
-	//TODO aqui creo que hay demasiadas propiedades
+	// TODO aqui creo que hay demasiadas propiedades
 
 	TiledMapRenderer tiledMapRenderer;
 
@@ -56,15 +58,18 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	Moneda modeda;
 
-	ArrayList<Rectangulo> trampas = new ArrayList<Rectangulo>();
+	HashMap<Rectangulo, String> trampas = new HashMap<Rectangulo, String>();
+
+	ArrayList<Disparo> disparos = new ArrayList<Disparo>();
 
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		pantalla = new Texture("stone-wall-tiled-multiple.png");
 		sprite = new Sprite(pantalla);
-		//TODO las animaciones no van bien
-		Animation animacion = new Animation(1 / 30f, new TextureAtlas(Gdx.files.internal("coinAtlas/COIN.atlas")).findRegions("COIN"));
+		// TODO las animaciones no van bien
+		Animation animacion = new Animation(1 / 30f,
+				new TextureAtlas(Gdx.files.internal("coinAtlas/COIN.atlas")).findRegions("COIN"));
 		modeda = new Moneda(new Posicion(), animacion);
 		actor = new Actor(new Posicion(100, 100), AnimationE.getAnimation(AnimationE.upStop));
 		escenario = new Stage();
@@ -84,7 +89,8 @@ public class MyGdxGame extends ApplicationAdapter {
 				int alto = (int) ((RectangleMapObject) elemento).getRectangle().height;
 				int ancho = (int) ((RectangleMapObject) elemento).getRectangle().width;
 				if (elemento.getName().startsWith("Puerta")) {
-					Puerta puerta = new Puerta(obtenerPosicion(elemento), Puerta.obtenerImagenPuerta(elemento.getName()), elemento.getName());
+					Puerta puerta = new Puerta(obtenerPosicion(elemento),
+							Puerta.obtenerImagenPuerta(elemento.getName()), elemento.getName());
 					escenario.addActor(puerta);
 					puertas.add(puerta);
 				} else if (elemento.getName().startsWith("Muro")) {
@@ -92,8 +98,8 @@ public class MyGdxGame extends ApplicationAdapter {
 				} else if (elemento.getName().startsWith("Respawn")) {
 					Rectangle rectangulo = ((RectangleMapObject) elemento).getRectangle();
 					modeda.respawn.add(rectangulo);
-				}else if (elemento.getName().startsWith("Trampa")) {
-					trampas.add(new Rectangulo(obtenerPosicion(elemento), ancho, alto));
+				} else if (elemento.getName().startsWith("Trampa")) {
+					trampas.put((new Rectangulo(obtenerPosicion(elemento), ancho, alto)),elemento.getName());
 				}
 			}
 		}
@@ -109,26 +115,39 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void render() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		/*if (!comprobarColisionLimites()) {
-			Sondeo.detectar(actor, false);
-		} else {
-			Sondeo.detectar(actor, true);
+		/*
+		 * if (!comprobarColisionLimites()) { Sondeo.detectar(actor, false); }
+		 * else { Sondeo.detectar(actor, true);
+		 * 
+		 * }
+		 */
 
-		}*/
-
-		/*for (Rectangulo trampa : trampas) {
-
-		}
-		*/
-		for (Rectangulo trampa : trampas) {
-
-			if (actor.comprobarColision(trampa)) {
-				escenario.addActor(new Disparo(trampa.posicion, trampa.ancho));
+		/*
+		 * for (Rectangulo trampa : trampas) {
+		 * 
+		 * }
+		 */
+		for (Entry<Rectangulo, String> trampa : trampas.entrySet()) {
+			if (actor.comprobarColision(trampa.getKey())) {
+				if (!(disparos.size() >= 1)) {
+					Disparo disparo = new Disparo(new Posicion(trampa.getKey().posicion.x, trampa.getKey().posicion.y), trampa.getKey().ancho,trampa.getValue());
+					disparos.add(disparo);
+					escenario.addActor(disparo);
+				}
 			}
 		}
-		/*System.out.println(trampas.size());
-
-		}*/
+		for (int i = 0; i < disparos.size(); i++) {
+			if (disparos.get(i).accionFinalizada()) {
+				escenario.getActors().removeValue(disparos.get(i), false);
+				disparos.remove(i);
+			}
+		}
+		System.out.println(disparos.size());
+		/*
+		 * System.out.println(trampas.size());
+		 * 
+		 * }
+		 */
 
 		Sondeo.detectar(actor, comprobarColisionLimites());
 		comprobarMoneda();
@@ -146,13 +165,13 @@ public class MyGdxGame extends ApplicationAdapter {
 	}
 
 	protected void comprobarMoneda() {
-		if (actor.comprobarColision(modeda.cuerpo)){
+		if (actor.comprobarColision(modeda.cuerpo)) {
 			modeda.colocar();
 		}
 	}
 
 	protected boolean comprobarColisionLimites() {
-		//TODO falta los limites de la pantalla
+		// TODO falta los limites de la pantalla
 		for (Rectangulo rectangulo : muro) {
 			if (actor.comprobarColision(rectangulo)) {
 				System.out.println("has chocao con un muro");
@@ -160,7 +179,8 @@ public class MyGdxGame extends ApplicationAdapter {
 			}
 		}
 		for (Puerta puerta : puertas) {
-			if (actor.comprobarColision(new Rectangulo(puerta.posicion, puerta.imagen.getWidth(), puerta.imagen.getHeight()))) {
+			if (actor.comprobarColision(
+					new Rectangulo(puerta.posicion, puerta.imagen.getWidth(), puerta.imagen.getHeight()))) {
 				System.out.println("has chocao con una puerta");
 				return true;
 			}
@@ -170,6 +190,6 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	@Override
 	public void dispose() {
-		//TODO aqui supongo que faltan disposear cosas
+		// TODO aqui supongo que faltan disposear cosas
 	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="55" tilewidth="32" tileheight="32" nextobjectid="77">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="55" tilewidth="32" tileheight="32" nextobjectid="78">
  <tileset firstgid="1" name="baldosa" tilewidth="32" tileheight="32" tilecount="16" columns="4">
   <image source="baldosa.png" width="128" height="128"/>
  </tileset>
@@ -11,19 +11,6 @@
  </tileset>
  <tileset firstgid="4785" name="ammoc01 - copia" tilewidth="32" tileheight="32" tilecount="144" columns="12">
   <image source="ammoc01 - copia.jpg" width="400" height="400"/>
- </tileset>
- <tileset firstgid="4929" name="Custom Edited - Mario Customs - Bullet Bill_18" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
- <tileset firstgid="4929" name="Custom Edited - Mario Customs - Bullet Bill_37" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
- <tileset firstgid="4929" name="dragon" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
- <tileset firstgid="4929" name="Custom Edited - Mario Customs - Bullet Bill" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
- <tileset firstgid="4929" name="Custom Edited - Mario Customs - Bullet Bill_18" tilewidth="32" tileheight="32" tilecount="1" columns="1">
-  <image source="C:/Users/david/Desktop/mountro/Custom Edited - Mario Customs - Bullet Bill_18.png" width="48" height="44"/>
- </tileset>
- <tileset firstgid="4930" name="Custom Edited - Mario Customs - Bullet Bill" tilewidth="32" tileheight="32" tilecount="64" columns="8">
-  <image source="C:/Users/david/Desktop/mountro/Custom Edited - Mario Customs - Bullet Bill.png" width="263" height="274"/>
- </tileset>
- <tileset firstgid="4994" name="2qD5oSE" tilewidth="32" tileheight="32" tilecount="156" columns="12">
-  <image source="C:/Users/david/Desktop/Textures/Textures/2qD5oSE.png" width="384" height="447"/>
  </tileset>
  <layer name="Capa de Patrones 1" width="60" height="55">
   <data encoding="base64" compression="zlib">
@@ -56,6 +43,7 @@
   <object id="70" name="RespawnOcho" x="87.8788" y="1233.33" width="421.212" height="278.788"/>
   <object id="71" x="1636.36" y="1609.09"/>
   <object id="76" name="TrampaDerecha" x="739.394" y="1412.12" width="563.636" height="15.1515"/>
+  <object id="77" name="TrampaIzquierda" x="1380" y="192" width="500" height="12"/>
  </objectgroup>
  <layer name="muros" width="60" height="55">
   <data encoding="base64" compression="zlib">
