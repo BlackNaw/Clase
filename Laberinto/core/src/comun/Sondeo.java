@@ -33,7 +33,6 @@ public class Sondeo {
 	public static void detectar(Actor actor, boolean salido) {
 
 		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-			//pulsada[0]=true;
 			chocada[1]=false;
 			//chocada[2]=false;
 			//chocada[3]=false;
@@ -41,28 +40,27 @@ public class Sondeo {
 				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = left;
 				direccion = Direccion.oeste;
-				
 
 			} else {
 				if(!chocada[0]){
 					chocada[0]=true;
 					actor.posicion.x+=1;
 				}
-				//actor.posicion.x=100;
-				//
-
-				//actor.posicion.x += 1;
-
-				//salido=false;
 			}
+			///---------------DAVID-----------ç
+			/*if (!salido) {
+				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
+				actor.animation = left;
+			}else {
+				actor.posicion.x = (actor.posicion.x + 8);
+				actor.animation = left;
+			}*/
 		}else{
-			//pulsada[0]=false;
 			if (direccion==Direccion.oeste) {
 				actor.animation=leftStop;
 			}
 		}
 		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-			//pulsada[1]=true;
 			chocada[0]=false;
 			//chocada[2]=false;
 			//chocada[3]=false;
@@ -76,18 +74,13 @@ public class Sondeo {
 					chocada[1]=true;
 					actor.posicion.x-=1;
 				}
-				//actor.posicion.x-=2;
-				//actor.posicion.x -= 1;
-				//salido=false;
 			}
 		}else{
-			//pulsada[1]=false;
 			if (direccion==Direccion.este) {
 				actor.animation=rightStop;
 			}
 		}
 		if (Gdx.input.isKeyPressed(Keys.UP)) {
-			//pulsada[2]=true;
 			chocada[3]=false;
 			//chocada[1]=false;
 			//chocada[0]=false;
@@ -95,25 +88,20 @@ public class Sondeo {
 				actor.posicion.y += Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = up;
 				direccion = Direccion.norte;
-				
+				//chocada[2]=false;
 			} else {
 				if(!chocada[2]){
 					chocada[2]=true;
 					actor.posicion.y-=1;
 				}
-				//actor.posicion.y-=2;
-				//actor.posicion.y -=1;
-				//salido=false;
 			}
 
 		}else{
-			//pulsada[2]=false;
 			if (direccion==Direccion.norte) {
 				actor.animation=upStop;
 			}
 		}
 		if (Gdx.input.isKeyPressed(Keys.DOWN)) {
-			//pulsada[3]=true;
 			chocada[2]=false;
 			//chocada[1]=false;
 			//chocada[0]=false;
@@ -128,13 +116,9 @@ public class Sondeo {
 					chocada[3]=true;
 					actor.posicion.y+=1;
 				}
-				//actor.posicion.y+=2;
-				//actor.posicion.y += 1;
-				//salido=false;
 			}
 
 		}else{
-			//pulsada[3]=false;
 			if (direccion==Direccion.sur) {
 				actor.animation=downStop;
 			}

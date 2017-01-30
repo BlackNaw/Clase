@@ -21,7 +21,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import comun.AnimationE;
-import comun.Disparo;
+//import comun.Disparo;
 import comun.Moneda;
 import comun.Posicion;
 import comun.Rectangulo;
@@ -54,7 +54,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	ArrayList<Puerta> puertas = new ArrayList<Puerta>();
 
 	Moneda modeda;
-	
+
 	ArrayList<Rectangulo> trampas = new ArrayList<Rectangulo>();
 
 	@Override
@@ -113,20 +113,18 @@ public class MyGdxGame extends ApplicationAdapter {
 		} else {
 			Sondeo.detectar(actor, true);
 <<<<<<< HEAD
-		}
-		
-		for (Rectangulo trampa : trampas) {
+		}*/
+
+		/*for (Rectangulo trampa : trampas) {
 			if (actor.comprobarColision(trampa)) {
 				escenario.addActor(new Disparo(trampa.posicion, trampa.ancho));
 			}
 		}
-		System.out.println(trampas.size());
+		/*System.out.println(trampas.size());
 =======
 		}*/
-		
+
 		Sondeo.detectar(actor, comprobarColisionLimites());
-		
->>>>>>> origin/master
 		comprobarMoneda();
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
