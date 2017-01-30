@@ -131,10 +131,6 @@ public class MyGdxGame extends ApplicationAdapter {
 		}*/
 
 		Sondeo.detectar(actor, comprobarColisionLimites());
-<<<<<<< HEAD
-=======
-		
->>>>>>> origin/master
 		comprobarMoneda();
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
