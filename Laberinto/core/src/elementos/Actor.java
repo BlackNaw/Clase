@@ -22,6 +22,10 @@ public class Actor extends Elemento implements Colisionable {
 		super(posicion, animation);
 	}
 	
+	/*public Actor(Posicion posicion, Texture texture) {
+		super(posicion, texture);
+	}*/
+	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);

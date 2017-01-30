@@ -62,7 +62,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		//TODO las animaciones no van bien
 		Animation animacion = new Animation(1 / 30f, new TextureAtlas(Gdx.files.internal("coinAtlas/COIN.atlas")).findRegions("COIN"));
 		modeda = new Moneda(new Posicion(), animacion);
-		actor = new Actor(new Posicion(100, 100), AnimationE.getAnimation(AnimationE.up));
+		actor = new Actor(new Posicion(100, 100), AnimationE.getAnimation(AnimationE.upStop));
 		escenario = new Stage();
 		escenario.addActor(actor);
 		escenario.addActor(modeda);
@@ -103,11 +103,14 @@ public class MyGdxGame extends ApplicationAdapter {
 	public void render() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		if (!comprobarColisionLimites()) {
+		/*if (!comprobarColisionLimites()) {
 			Sondeo.detectar(actor, false);
 		} else {
 			Sondeo.detectar(actor, true);
-		}
+		}*/
+		
+		Sondeo.detectar(actor, comprobarColisionLimites());
+		
 		comprobarMoneda();
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
