@@ -16,6 +16,15 @@
  <tileset firstgid="4929" name="Custom Edited - Mario Customs - Bullet Bill_37" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
  <tileset firstgid="4929" name="dragon" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
  <tileset firstgid="4929" name="Custom Edited - Mario Customs - Bullet Bill" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
+ <tileset firstgid="4929" name="Custom Edited - Mario Customs - Bullet Bill_18" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="C:/Users/david/Desktop/mountro/Custom Edited - Mario Customs - Bullet Bill_18.png" width="48" height="44"/>
+ </tileset>
+ <tileset firstgid="4930" name="Custom Edited - Mario Customs - Bullet Bill" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="C:/Users/david/Desktop/mountro/Custom Edited - Mario Customs - Bullet Bill.png" width="263" height="274"/>
+ </tileset>
+ <tileset firstgid="4994" name="2qD5oSE" tilewidth="32" tileheight="32" tilecount="156" columns="12">
+  <image source="C:/Users/david/Desktop/Textures/Textures/2qD5oSE.png" width="384" height="447"/>
+ </tileset>
  <layer name="Capa de Patrones 1" width="60" height="55">
   <data encoding="base64" compression="zlib">
    eJzdm7tWFEEQhueys8MqeAl4BAM19gKoGQEPYMAjEKixF0DNDHgEAi5eQFHR2ACNDXwEAzT2AqiR/68zx5q2d6aHnd6ts8F3ltrp6p6a6n+mpvawEgTBKlgD6+AheAQegydgA2yCp+AZ2ALPwQvwEmyDlT7MsdLgOm2QghGQDLHNWHfBEXAUjILOENuM9XQYBMfweRycAGPB8NqM9RqI8HcMWgDm0NqMdTvUoy/fNmPdC/Xoy7fNWCciPfrybTPW+UiPvnzbjHUn0qMv3zZjTeLB6iuvmVb7sB5jnYkHqy/WAJ8yfK/HWJfiweqLNcCZDN/rMdYPsR59+bYZ63hLz/PRt81YZ1t6no++bca63NLzfPRtM9aPLT368m0z1lOJHn35thnrXKJHX75txrqV6NGXb5uxfkn06Mu3zVjPtfXoy7fNWG+29ejLt81Y37T16Mu3zVjDVI+++tF/nk716Ksf/ecHqR599aP//D7Vo69+9J9PjujRF235u5iP/vPVET36or0b/Ovx+Og/zyvrP8v+nY/+846y/rPs3/noPyfK+leyf+ej/8weJevor+Ab+A72wD44AD/AT/ArsY9z9bVdb1ffw5yXbVyS9WNZR58HF8BFMAEmwRS4BC6DK237OFdf2/V29T3MednGzWT9WNbRt8BtcAfMgwWwCO6Ce+B+2z7O1dd2v3T1Pcx52cYtZf1YH/fXtYbma9Jmbmcb7k/m99fPDc3XpD2e9WObvL/K/Gq430t7NuvHutYnVdcyNvI7ahlTVQ+55Et+V2f+5awf222/m3NVXUt+5s/Ps2HRpywOM4aWZY38eJIhbXkOZfplbtmjlOvI4+ZcVbnhJ99BroMbYdGn7NollrXy/UR/qZFORiKOu+4P5pY9SrmOPG7OVXUv5CffQV6B12HRR8Zj24PmWvn1pr/UyFhGJ5vHPIeyPTiX1SZyHXncnMu2h83v+A6yDw7Cok/hd/bg/z1oO+/cR2okHzcmrof0K9uDzC1rE9fxNtv8ju8gk2AqKvrI86raNx3DR2rEHGOeS9keZG5Zm3TTr8vz3PyO7yALYDEq+phUrSGRGimbh5Tpl7llj7Kbfm3Pg6pnOt9B3oJ3UXP1gtRIXX+pHeY2TLvr10Wvpv3n/RKkcXP1gtRIXX+555nb6bSefl003XS/R2qkrn+hnkj/9mPr6NdF003X+1Ijdf3l/mZuZT+2qnYbVL0vNdLLfMyt7MfatKCh3pf57WU+5lb2Y21aGHR/tmPkt5f5mFtZm64Hev8/ZaOBdZjb35GrcbM=

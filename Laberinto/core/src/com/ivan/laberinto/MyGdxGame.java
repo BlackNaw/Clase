@@ -113,9 +113,15 @@ public class MyGdxGame extends ApplicationAdapter {
 		} else {
 			Sondeo.detectar(actor, true);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		}*/
 
 		/*for (Rectangulo trampa : trampas) {
+=======
+		}
+		
+		for (Rectangulo trampa : trampas) {
+>>>>>>> origin/master
 			if (actor.comprobarColision(trampa)) {
 				escenario.addActor(new Disparo(trampa.posicion, trampa.ancho));
 			}
@@ -125,6 +131,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		}*/
 
 		Sondeo.detectar(actor, comprobarColisionLimites());
+<<<<<<< HEAD
+=======
+		
+>>>>>>> origin/master
 		comprobarMoneda();
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
