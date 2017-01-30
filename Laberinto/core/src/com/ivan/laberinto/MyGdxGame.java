@@ -112,7 +112,6 @@ public class MyGdxGame extends ApplicationAdapter {
 			Sondeo.detectar(actor, false);
 		} else {
 			Sondeo.detectar(actor, true);
-<<<<<<< HEAD
 		}
 		
 		for (Rectangulo trampa : trampas) {
@@ -126,7 +125,6 @@ public class MyGdxGame extends ApplicationAdapter {
 		
 		Sondeo.detectar(actor, comprobarColisionLimites());
 		
->>>>>>> origin/master
 		comprobarMoneda();
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
