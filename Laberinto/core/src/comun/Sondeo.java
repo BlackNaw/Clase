@@ -19,7 +19,7 @@ public class Sondeo {
 	static Animation down = AnimationE.getAnimation(AnimationE.down);
 	static Animation left = AnimationE.getAnimation(AnimationE.left);
 	static Animation right = AnimationE.getAnimation(AnimationE.right);
-	
+
 	static Animation upStop = AnimationE.getAnimation(AnimationE.upStop);
 	static Animation downStop = AnimationE.getAnimation(AnimationE.downStop);
 	static Animation leftStop = AnimationE.getAnimation(AnimationE.leftStop);
@@ -28,19 +28,29 @@ public class Sondeo {
 
 	static Direccion direccion;
 	//                        left   right  up     down
-	//static boolean[] pulsada={false, false, false, false};
+	static boolean[] chocada={false, false, false, false};
 
 	public static void detectar(Actor actor, boolean salido) {
 
 		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
 			//pulsada[0]=true;
-			if (!salido) {
+			chocada[1]=false;
+			//chocada[2]=false;
+			//chocada[3]=false;
+			if (!salido && !chocada[0]) {
 				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = left;
 				direccion = Direccion.oeste;
+				
+
 			} else {
+				if(!chocada[0]){
+					chocada[0]=true;
+					actor.posicion.x+=1;
+				}
 				//actor.posicion.x=100;
-				actor.posicion.x+=2;
+				//
+
 				//actor.posicion.x += 1;
 
 				//salido=false;
@@ -53,12 +63,20 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
 			//pulsada[1]=true;
-			if (!salido) {
+			chocada[0]=false;
+			//chocada[2]=false;
+			//chocada[3]=false;
+			if (!salido && !chocada[1]) {
 				actor.posicion.x += Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = right;
 				direccion = Direccion.este;
+				
 			}else {
-				actor.posicion.x-=2;
+				if(!chocada[1]){
+					chocada[1]=true;
+					actor.posicion.x-=1;
+				}
+				//actor.posicion.x-=2;
 				//actor.posicion.x -= 1;
 				//salido=false;
 			}
@@ -70,12 +88,20 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.UP)) {
 			//pulsada[2]=true;
-			if (!salido) {
+			chocada[3]=false;
+			//chocada[1]=false;
+			//chocada[0]=false;
+			if (!salido && !chocada[2]) {
 				actor.posicion.y += Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = up;
 				direccion = Direccion.norte;
+				
 			} else {
-				actor.posicion.y-=2;
+				if(!chocada[2]){
+					chocada[2]=true;
+					actor.posicion.y-=1;
+				}
+				//actor.posicion.y-=2;
 				//actor.posicion.y -=1;
 				//salido=false;
 			}
@@ -88,13 +114,21 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.DOWN)) {
 			//pulsada[3]=true;
-			if (!salido) {
+			chocada[2]=false;
+			//chocada[1]=false;
+			//chocada[0]=false;
+			if (!salido && !chocada[3]) {
 				actor.posicion.y -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = down;
 				direccion = Direccion.sur;
+				
 			}else {
 
-				actor.posicion.y+=2;
+				if(!chocada[3]){
+					chocada[3]=true;
+					actor.posicion.y+=1;
+				}
+				//actor.posicion.y+=2;
 				//actor.posicion.y += 1;
 				//salido=false;
 			}

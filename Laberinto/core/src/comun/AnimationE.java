@@ -24,7 +24,7 @@ public enum AnimationE {
 	public static Animation getAnimation(AnimationE animationE){
 		String titulo=animationE.toString();
 		TextureAtlas textureAtlas=new TextureAtlas(Gdx.files.internal("hansAtlas/HANS.atlas"));
-		return new Animation(1/5f, textureAtlas.findRegions(titulo));
+		return new Animation(1/6f, textureAtlas.findRegions(titulo));
 	}
 	
 }

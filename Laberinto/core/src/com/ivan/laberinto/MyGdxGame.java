@@ -156,8 +156,7 @@ public class MyGdxGame extends ApplicationAdapter {
 			}
 		}
 		for (Puerta puerta : puertas) {
-			if (actor.comprobarColision(
-					new Rectangulo(puerta.posicion, puerta.imagen.getWidth(), puerta.imagen.getHeight()))) {
+			if (actor.comprobarColision(new Rectangulo(puerta.posicion, puerta.imagen.getWidth(), puerta.imagen.getHeight()))) {
 				System.out.println("has chocao con una puerta");
 				return true;
 			}
