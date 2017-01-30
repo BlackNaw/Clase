@@ -40,5 +40,5 @@ public class Disparo extends Elemento {
 		posicion.x = (int) this.getX();
 		posicion.y = (int) this.getY();
 	}
-
+	
 }
