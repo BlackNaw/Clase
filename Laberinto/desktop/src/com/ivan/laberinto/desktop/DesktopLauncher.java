@@ -1,4 +1,4 @@
-package com.ivan.laberinto.desktop;
+ package com.ivan.laberinto.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;

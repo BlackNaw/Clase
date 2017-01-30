@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 public enum AnimationE {
 	up("UP"), down("DOWN"), left("LEFT"), right("RIGHT"), 
 	upStop("UPSTOP"), downStop("DOWNSTOP"), leftStop("LEFTSTOP"), rightStop("RIGHTSTOP");
+
 	private String titulo;
 	Animation animation;
 	TextureAtlas textureAtlas;
