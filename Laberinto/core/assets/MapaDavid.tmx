@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="55" tilewidth="32" tileheight="32" nextobjectid="77">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="55" tilewidth="32" tileheight="32" nextobjectid="78">
  <tileset firstgid="1" name="baldosa" tilewidth="32" tileheight="32" tilecount="16" columns="4">
   <image source="baldosa.png" width="128" height="128"/>
  </tileset>
@@ -43,6 +43,7 @@
   <object id="70" name="RespawnOcho" x="87.8788" y="1233.33" width="421.212" height="278.788"/>
   <object id="71" x="1636.36" y="1609.09"/>
   <object id="76" name="TrampaDerecha" x="739.394" y="1412.12" width="563.636" height="15.1515"/>
+  <object id="77" name="TrampaIzquierda" x="1380" y="192" width="500" height="12"/>
  </objectgroup>
  <layer name="muros" width="60" height="55">
   <data encoding="base64" compression="zlib">
