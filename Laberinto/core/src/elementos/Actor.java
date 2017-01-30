@@ -1,5 +1,6 @@
 package elementos;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -15,7 +16,7 @@ import comun.Posicion;
 import comun.Rectangulo;
 
 public class Actor extends Elemento implements Colisionable {
-	float elapsedTime=0;
+	private float elapsedTime=0;
 	
 	public Actor(Posicion posicion, Animation animation) {
 		super(posicion, animation);
@@ -24,7 +25,7 @@ public class Actor extends Elemento implements Colisionable {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		//batch.draw((TextureRegion)animation.getKeyFrame(elapsedTime, true), 0, 0);
+		elapsedTime += Gdx.graphics.getDeltaTime();
 		batch.draw((TextureRegion)animation.getKeyFrame(elapsedTime, true), posicion.x, posicion.y);
 	}
 

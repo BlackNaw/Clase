@@ -75,7 +75,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	}
 
 	private void obtenerElementosMapa() {
-		for (MapObject elemento : tiledMap.getLayers().get(1).getObjects()) {
+		for (MapObject elemento : tiledMap.getLayers().get("Puertas").getObjects()) {
 			if (elemento.getName() != null) {
 				int alto = (int) ((RectangleMapObject) elemento).getRectangle().height;
 				int ancho = (int) ((RectangleMapObject) elemento).getRectangle().width;

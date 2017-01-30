@@ -34,7 +34,7 @@ public class Sondeo {
 				direccion = Direccion.oeste;
 			} else {
 				//actor.posicion.x=100;
-				actor.posicion.x+=20;
+				actor.posicion.x+=2;
 				//actor.posicion.x += 1;
 
 				//salido=false;
@@ -48,7 +48,7 @@ public class Sondeo {
 				actor.animation = right;
 				direccion = Direccion.este;
 			}else {
-				actor.posicion.x-=20;
+				actor.posicion.x-=2;
 				//actor.posicion.x -= 1;
 				//salido=false;
 			}
@@ -59,7 +59,7 @@ public class Sondeo {
 				actor.animation = up;
 				direccion = Direccion.norte;
 			} else {
-				actor.posicion.y-=20;
+				actor.posicion.y-=2;
 				//actor.posicion.y -=1;
 				//salido=false;
 			}
@@ -72,7 +72,7 @@ public class Sondeo {
 				direccion = Direccion.sur;
 			}else {
 
-				actor.posicion.y+=20;
+				actor.posicion.y+=2;
 				//actor.posicion.y += 1;
 				//salido=false;
 			}

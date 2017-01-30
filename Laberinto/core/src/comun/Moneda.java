@@ -3,6 +3,7 @@ package comun;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -15,6 +16,8 @@ public class Moneda extends Elemento{
 
 	public ArrayList<Rectangle> respawn = new ArrayList<Rectangle>();
 	
+	private float elapsedTime = 0;
+	
 	public Moneda(Posicion posicion, Animation animation) {
 		super(posicion, animation);
 	}
@@ -22,7 +25,8 @@ public class Moneda extends Elemento{
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		batch.draw((TextureRegion)animation.getKeyFrame(parentAlpha, true), posicion.x, posicion.y);
+		elapsedTime += Gdx.graphics.getDeltaTime();
+		batch.draw((TextureRegion)animation.getKeyFrame(elapsedTime, true), posicion.x, posicion.y);
 	}
 	
 	public void colocar() {
