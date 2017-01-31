@@ -63,8 +63,14 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	ArrayList<Disparo> disparos = new ArrayList<Disparo>();
 
+<<<<<<< HEAD
 	HUD hud;
 	
+=======
+	Rectangulo wallSize;
+
+
+>>>>>>> origin/master
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
@@ -84,7 +90,11 @@ public class MyGdxGame extends ApplicationAdapter {
 		obtenerElementosMapa();
 		modeda.colocar();
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+<<<<<<< HEAD
 		hud = new HUD(actor);
+=======
+		wallSize=new Rectangulo(new Posicion(0, 0), pantalla.getWidth(), pantalla.getHeight());
+>>>>>>> origin/master
 	}
 
 	private void obtenerElementosMapa() {
@@ -133,8 +143,13 @@ public class MyGdxGame extends ApplicationAdapter {
 		 */
 		crearDisparo();
 		accionDisparo();
-		
-		Sondeo.detectar(actor, comprobarColisionLimites());
+
+		/*if (!comprobarColisionLimites()) { 
+			Sondeo.detectar(actor, false); 
+		} else { 
+			Sondeo.detectar(actor, true);
+		}*/
+		Sondeo.detectar(actor, comprobarColisionLimites() || salidaDePantalla());
 		comprobarMoneda();
 		camara.position.x = actor.posicion.x;
 		camara.position.y = actor.posicion.y;
@@ -184,7 +199,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		}
 	}
 
-	protected boolean comprobarColisionLimites() {
+	/*protected boolean comprobarColisionLimites() {
 		// TODO falta los limites de la pantalla
 		for (Rectangulo rectangulo : muro) {
 			if (actor.comprobarColision(rectangulo)) {
@@ -200,6 +215,32 @@ public class MyGdxGame extends ApplicationAdapter {
 			}
 		}
 		return false;
+	}*/
+
+	protected boolean comprobarColisionLimites(){
+		for (Puerta puerta : puertas) {
+			if(actor.cuerpo.colision(puerta.cuerpo)){
+				System.out.println("puerta");
+				return true;
+			}
+		}
+		for (Rectangulo rectangulo : muro) {
+			if(actor.cuerpo.colision(rectangulo)){
+				System.out.println("muro");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	protected boolean salidaDePantalla(){
+		if(actor.cuerpo.contiene(wallSize)){
+			//System.out.println("pared");
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 
 	@Override
