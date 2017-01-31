@@ -218,6 +218,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		for (Puerta puerta : puertas) {
 			if(actor.cuerpo.colision(puerta.cuerpo)){
 				System.out.println("puerta");
+				//actor.setPosition(puerta.getOriginX()-5, puerta.getOriginY()-5);
 				return true;
 			}
 		}
