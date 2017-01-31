@@ -63,14 +63,11 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	ArrayList<Disparo> disparos = new ArrayList<Disparo>();
 
-<<<<<<< HEAD
 	HUD hud;
-	
-=======
+
 	Rectangulo wallSize;
 
 
->>>>>>> origin/master
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
@@ -90,11 +87,11 @@ public class MyGdxGame extends ApplicationAdapter {
 		obtenerElementosMapa();
 		modeda.colocar();
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-<<<<<<< HEAD
+
 		hud = new HUD(actor);
-=======
+
 		wallSize=new Rectangulo(new Posicion(0, 0), pantalla.getWidth(), pantalla.getHeight());
->>>>>>> origin/master
+
 	}
 
 	private void obtenerElementosMapa() {
