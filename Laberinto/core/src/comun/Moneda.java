@@ -32,12 +32,21 @@ public class Moneda extends Elemento{
 	public void colocar() {
 		//TODO esto nose si lo hace bien
 		Rectangle respawn = this.respawn.get(new Random().nextInt(this.respawn.size()));
-		int x =  (int) Math.random() * (int)((respawn.x + respawn.getWidth()) - respawn.x) + (int)  respawn.x;
-		int y =   (int) Math.random() * (int)((respawn.y + respawn.getWidth()) - respawn.y) + (int)  respawn.y;
-		this.posicion.x = x;
-		this.posicion.y = y;
-		System.out.println("x " + posicion.x);
+		Random random = new Random();
+		
+		int x =  random.nextInt((int) ((int) ((respawn.x + respawn.getWidth()) - respawn.x) + respawn.x)); 
+		int y =  random.nextInt((int) ((int) ((respawn.y + respawn.getHeight()) - respawn.y) + respawn.y)); 
+		this.setX(x);
+		this.setY(y);
+		System.out.println("x " + getX());
 		System.out.println(posicion.y);
+	}
+	
+	@Override
+	public void act(float delta) {
+		super.act(delta);
+		this.posicion.x = (int) getX();
+		this.posicion.y = (int) getY();
 	}
 	
 }
