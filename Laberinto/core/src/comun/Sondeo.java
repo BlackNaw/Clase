@@ -34,8 +34,8 @@ public class Sondeo {
 
 		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
 			chocada[1]=false;
-			//chocada[2]=false;
-			//chocada[3]=false;
+			chocada[2]=false;
+			chocada[3]=false;
 			if (!salido && !chocada[0]) {
 				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = left;
@@ -44,17 +44,10 @@ public class Sondeo {
 			} else {
 				if(!chocada[0]){
 					chocada[0]=true;
-					actor.posicion.x+=1;
+					actor.posicion.x+=5;
 				}
+				//actor.posicion.x+=1;
 			}
-			///---------------DAVID-----------ç
-			/*if (!salido) {
-				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
-				actor.animation = left;
-			}else {
-				actor.posicion.x = (actor.posicion.x + 8);
-				actor.animation = left;
-			}*/
 		}else{
 			if (direccion==Direccion.oeste) {
 				actor.animation=leftStop;
@@ -62,8 +55,8 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
 			chocada[0]=false;
-			//chocada[2]=false;
-			//chocada[3]=false;
+			chocada[2]=false;
+			chocada[3]=false;
 			if (!salido && !chocada[1]) {
 				actor.posicion.x += Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = right;
@@ -72,8 +65,9 @@ public class Sondeo {
 			}else {
 				if(!chocada[1]){
 					chocada[1]=true;
-					actor.posicion.x-=1;
+					actor.posicion.x-=5;
 				}
+				//actor.posicion.x-=1;
 			}
 		}else{
 			if (direccion==Direccion.este) {
@@ -82,8 +76,8 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.UP)) {
 			chocada[3]=false;
-			//chocada[1]=false;
-			//chocada[0]=false;
+			chocada[1]=false;
+			chocada[0]=false;
 			if (!salido && !chocada[2]) {
 				actor.posicion.y += Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = up;
@@ -92,8 +86,9 @@ public class Sondeo {
 			} else {
 				if(!chocada[2]){
 					chocada[2]=true;
-					actor.posicion.y-=1;
+					actor.posicion.y-=5;
 				}
+				//actor.posicion.y-=1;
 			}
 
 		}else{
@@ -103,8 +98,8 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.DOWN)) {
 			chocada[2]=false;
-			//chocada[1]=false;
-			//chocada[0]=false;
+			chocada[1]=false;
+			chocada[0]=false;
 			if (!salido && !chocada[3]) {
 				actor.posicion.y -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = down;
@@ -114,8 +109,9 @@ public class Sondeo {
 
 				if(!chocada[3]){
 					chocada[3]=true;
-					actor.posicion.y+=1;
+					actor.posicion.y+=5;
 				}
+				//actor.posicion.y+=1;
 			}
 
 		}else{
