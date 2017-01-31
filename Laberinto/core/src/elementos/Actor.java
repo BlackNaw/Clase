@@ -18,13 +18,11 @@ import comun.Rectangulo;
 public class Actor extends Elemento implements Colisionable {
 	private float elapsedTime=0;
 	
+	public int vidas = 3;
+	
 	public Actor(Posicion posicion, Animation animation) {
 		super(posicion, animation);
 	}
-	
-	/*public Actor(Posicion posicion, Texture texture) {
-		super(posicion, texture);
-	}*/
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
@@ -46,6 +44,10 @@ public class Actor extends Elemento implements Colisionable {
 	@Override
 	public boolean comprobarColision(Rectangulo cuerpo) {
 		return this.cuerpo.colision(cuerpo);
+	}
+	
+	public boolean isVivo() {
+		return vidas > 0;
 	}
 
 }

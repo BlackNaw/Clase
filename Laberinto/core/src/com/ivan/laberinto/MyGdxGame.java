@@ -127,28 +127,9 @@ public class MyGdxGame extends ApplicationAdapter {
 		 * 
 		 * }
 		 */
-		for (Entry<Rectangulo, String> trampa : trampas.entrySet()) {
-			if (actor.comprobarColision(trampa.getKey())) {
-				if (!(disparos.size() >= 1)) {
-					Disparo disparo = new Disparo(new Posicion(trampa.getKey().posicion.x, trampa.getKey().posicion.y), trampa.getKey().ancho, trampa.getKey().alto,trampa.getValue());
-					disparos.add(disparo);
-					escenario.addActor(disparo);
-				}
-			}
-		}
-		for (int i = 0; i < disparos.size(); i++) {
-			if (disparos.get(i).accionFinalizada()) {
-				escenario.getActors().removeValue(disparos.get(i), false);
-				disparos.remove(i);
-			}
-		}
-		System.out.println(disparos.size());
-		/*
-		 * System.out.println(trampas.size());
-		 * 
-		 * }
-		 */
-
+		crearDisparo();
+		accionDisparo();
+		
 		Sondeo.detectar(actor, comprobarColisionLimites());
 		comprobarMoneda();
 		camara.position.x = actor.posicion.x;
@@ -164,7 +145,34 @@ public class MyGdxGame extends ApplicationAdapter {
 		escenario.draw();
 	}
 
-	protected void comprobarMoneda() {
+	private void crearDisparo() {
+		for (Entry<Rectangulo, String> trampa : trampas.entrySet()) {
+			if (actor.comprobarColision(trampa.getKey())) {
+				if (!(disparos.size() >= 1)) {
+					Disparo disparo = new Disparo(new Posicion(trampa.getKey().posicion.x, trampa.getKey().posicion.y), trampa.getKey().ancho, trampa.getKey().alto,trampa.getValue());
+					disparos.add(disparo);
+					escenario.addActor(disparo);
+				}
+			}
+		}
+	}
+
+	private void accionDisparo() {
+		for (int i = 0; i < disparos.size(); i++) {
+			if (disparos.get(i).accionFinalizada()) {
+				escenario.getActors().removeValue(disparos.get(i), false);
+				disparos.remove(i);
+			}else {
+				if(actor.comprobarColision(disparos.get(i).cuerpo)){
+					actor.vidas--;
+					escenario.getActors().removeValue(disparos.get(i), false);
+					disparos.remove(i);
+				}
+			}
+		}
+	}
+
+	private void comprobarMoneda() {
 		if (actor.comprobarColision(modeda.cuerpo)) {
 			modeda.colocar();
 		}
