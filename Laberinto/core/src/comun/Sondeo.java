@@ -34,8 +34,8 @@ public class Sondeo {
 
 		if (Gdx.input.isKeyPressed(Keys.LEFT)) {
 			chocada[1]=false;
-			chocada[2]=false;
-			chocada[3]=false;
+			//chocada[2]=false;
+			//chocada[3]=false;
 			if (!salido && !chocada[0]) {
 				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = left;
@@ -55,8 +55,8 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
 			chocada[0]=false;
-			chocada[2]=false;
-			chocada[3]=false;
+			//chocada[2]=false;
+			//chocada[3]=false;
 			if (!salido && !chocada[1]) {
 				actor.posicion.x += Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = right;
@@ -76,8 +76,8 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.UP)) {
 			chocada[3]=false;
-			chocada[1]=false;
-			chocada[0]=false;
+			//chocada[1]=false;
+			//chocada[0]=false;
 			if (!salido && !chocada[2]) {
 				actor.posicion.y += Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = up;
@@ -98,8 +98,8 @@ public class Sondeo {
 		}
 		if (Gdx.input.isKeyPressed(Keys.DOWN)) {
 			chocada[2]=false;
-			chocada[1]=false;
-			chocada[0]=false;
+			//chocada[1]=false;
+			//chocada[0]=false;
 			if (!salido && !chocada[3]) {
 				actor.posicion.y -= Constantes.VELOCIDAD_PERSONAJE;
 				actor.animation = down;
