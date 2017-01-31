@@ -30,6 +30,7 @@ import comun.Posicion;
 import comun.Rectangulo;
 import comun.Sondeo;
 import elementos.Actor;
+import elementos.Mercado;
 import elementos.Moneda;
 import elementos.Puerta;
 
@@ -51,8 +52,6 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	Actor actor;
 
-	//Texture pantalla;
-
 	ArrayList<Rectangulo> muro = new ArrayList<Rectangulo>();
 
 	ArrayList<Puerta> puertas = new ArrayList<Puerta>();
@@ -67,15 +66,16 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	Rectangulo wallSize;
 
+	Mercado mercado;
+	
+	Rectangulo posicionMercado;
 
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
-		//pantalla = new Texture("stone-wall-tiled-multiple.png");
-//		sprite = new Sprite(pantalla);
 		// TODO las animaciones no van bien
 		Animation animacion = new Animation(1 / 30f,
-				new TextureAtlas(Gdx.files.internal("coinAtlas/COIN.atlas")).findRegions("COIN"));
+				new TextureAtlas(Gdx.files.internal("coinAtlas/monedas.atlas")).findRegions("frame"));
 		modeda = new Moneda(new Posicion(), animacion);
 		actor = new Actor(new Posicion(100, 100), AnimationE.getAnimation(AnimationE.upStop));
 		escenario = new Stage();
@@ -87,11 +87,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		obtenerElementosMapa();
 		modeda.colocar();
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-
 		hud = new HUD(actor);
-
-		wallSize=new Rectangulo(new Posicion(0, 0), pantalla.getWidth(), pantalla.getHeight());
-
+		Rectangle pantalla =  ((RectangleMapObject)tiledMap.getLayers().get("Puertas").getObjects().get("Pantalla")).getRectangle();
+		wallSize=new Rectangulo(new Posicion(0, 0), (int) pantalla.getWidth(),(int) pantalla.getHeight());
+		
 	}
 
 	private void obtenerElementosMapa() {
@@ -111,6 +110,8 @@ public class MyGdxGame extends ApplicationAdapter {
 					modeda.respawn.add(rectangulo);
 				} else if (elemento.getName().startsWith("Trampa")) {
 					trampas.put((new Rectangulo(obtenerPosicion(elemento), ancho, alto)),elemento.getName());
+				}else if (elemento.getName().startsWith("Mercado")) {
+					posicionMercado = new Rectangulo(obtenerPosicion(elemento), ancho, alto);
 				}
 			}
 		}
@@ -154,12 +155,17 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch.setProjectionMatrix(camara.combined);
 		tiledMapRenderer.setView(camara);
 		tiledMapRenderer.render();
+		batch.begin();
+		if (actor.comprobarColision(posicionMercado)) {
+			actor.monedas = Mercado.comprar(actor.monedas, batch,camara);
+			actor.setY(actor.getY() - 20);
+			actor.posicion.y = actor.posicion.y - 20;
+		}
+		hud.pintar(batch, camara);
+		batch.end();		
 		escenario.act();
 		escenario.draw();
-		batch.begin();
-//		sprite.draw(batch);
-		hud.pintar(batch, camara);
-		batch.end();
+
 	}
 
 	private void crearDisparo() {

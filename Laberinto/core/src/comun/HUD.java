@@ -29,7 +29,7 @@ public class HUD implements Disposable{
 
 	public void pintar(SpriteBatch batch, Camera camera) {
 		batch.draw(verde, camera.position.x-Gdx.graphics.getWidth()/2+10,  camera.position.y-Gdx.graphics.getHeight()/2+10,100,30);
-		batch.draw(azul, camera.position.x-Gdx.graphics.getWidth()/2+15,camera.position.y-Gdx.graphics.getHeight()/2+15,tamanoVida*(actor.vidas/Constantes.VIDA_JUGADOR),20);
+		batch.draw(azul, camera.position.x-Gdx.graphics.getWidth()/2+15,camera.position.y-Gdx.graphics.getHeight()/2+15,tamanoVida*((float)actor.vidas/(float)Constantes.VIDA_JUGADOR),20);
 		//font.draw(batch, "Llaves :"+Jugador.llaves.size(),camera.position.x-Gdx.graphics.getWidth()/2+20, camera.position.y+Gdx.graphics.getHeight()/2-10); 
 		font.draw(batch, "Monedas : "+actor.monedas, camera.position.x+Gdx.graphics.getWidth()/2-200, camera.position.y+Gdx.graphics.getHeight()/2-10);
 	}

@@ -33,12 +33,12 @@ public class Moneda extends Elemento{
 		//TODO esto nose si lo hace bien
 		Rectangle respawn = this.respawn.get(new Random().nextInt(this.respawn.size()));
 		Random random = new Random();
-		int x =  random.nextInt((int) ((int) ((respawn.x + respawn.getWidth())) + respawn.x)); 
-		int y =  random.nextInt((int) ((int) ((respawn.y + respawn.getHeight()) - respawn.y) + respawn.y)); 
+		int x =  (int) (random.nextInt((int) respawn.getX()) + respawn.getWidth());
+		int y = (int) (random.nextInt((int) respawn.getY()) + respawn.getHeight());
 		this.setX(x);
 		this.setY(y);
 		System.out.println("x " + getX());
-		System.out.println(posicion.y);
+		System.out.println("y " + getY());
 	}
 	
 	@Override

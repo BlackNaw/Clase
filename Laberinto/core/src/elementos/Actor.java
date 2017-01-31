@@ -20,7 +20,7 @@ public class Actor extends Elemento implements Colisionable {
 	
 	public int vidas = 3;
 	
-	public int monedas = 0;
+	public Integer monedas = 0;
 	
 	public Actor(Posicion posicion, Animation animation) {
 		super(posicion, animation);
