@@ -25,14 +25,14 @@
   <object id="32" name="PuertaHorizontalIzquierdaDos" x="990.667" y="994.667" width="158.667" height="92"/>
   <object id="33" name="PuertaVerticalAbajoTres" x="545.333" y="1406.67" width="93.3333" height="160"/>
   <object id="38" name="PuertaVerticalArribaCuatro" x="1408" y="1344" width="96" height="160"/>
-  <object id="51" name="Pantalla" x="36.3636" y="36.3636" width="1848.48" height="1687.88"/>
+  <object id="51" name="Pantalla" x="32.3636" y="30.3636" width="1852.48" height="1693.88"/>
   <object id="53" name="MuroUno" x="33.3333" y="318.182" width="1084.85" height="100"/>
-  <object id="54" name="MuroDos" x="36.3636" y="1087.88" width="790.909" height="93.9394"/>
+  <object id="54" name="MuroDos" x="36.3636" y="1083.88" width="790.909" height="97.9394"/>
   <object id="55" name="MuroTres" x="636.364" y="578.788" width="100" height="984.848"/>
   <object id="56" name="MuroCuatro" x="1281.82" y="33.3333" width="96.9697" height="475.758"/>
   <object id="57" name="MuroCinco" x="1151.52" y="672.727" width="730.303" height="96.9697"/>
   <object id="58" name="MuroSeis" x="990.909" y="1090.91" width="896.97" height="96.9697"/>
-  <object id="59" name="MuroSiete" x="1306.06" y="1348.48" width="106.061" height="372.727"/>
+  <object id="59" name="MuroSiete" x="1313.06" y="1341.48" width="94.061" height="379.727"/>
   <object id="60" name="MuroOcho" x="1151.52" y="927.273" width="103.03" height="163.636"/>
   <object id="63" name="RespawnUno" x="99.8485" y="84.8485" width="822.061" height="181.818"/>
   <object id="64" name="RespawnDos" x="100" y="463.636" width="466.667" height="551.515"/>

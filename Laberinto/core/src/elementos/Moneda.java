@@ -1,4 +1,4 @@
-package comun;
+package elementos;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Rectangle;
 
-import elementos.Elemento;
+import comun.Posicion;
 
 public class Moneda extends Elemento{
 
@@ -33,8 +33,7 @@ public class Moneda extends Elemento{
 		//TODO esto nose si lo hace bien
 		Rectangle respawn = this.respawn.get(new Random().nextInt(this.respawn.size()));
 		Random random = new Random();
-		
-		int x =  random.nextInt((int) ((int) ((respawn.x + respawn.getWidth()) - respawn.x) + respawn.x)); 
+		int x =  random.nextInt((int) ((int) ((respawn.x + respawn.getWidth())) + respawn.x)); 
 		int y =  random.nextInt((int) ((int) ((respawn.y + respawn.getHeight()) - respawn.y) + respawn.y)); 
 		this.setX(x);
 		this.setY(y);

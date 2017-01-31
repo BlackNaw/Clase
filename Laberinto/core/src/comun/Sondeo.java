@@ -47,14 +47,6 @@ public class Sondeo {
 					actor.posicion.x+=1;
 				}
 			}
-			///---------------DAVID-----------ç
-			/*if (!salido) {
-				actor.posicion.x -= Constantes.VELOCIDAD_PERSONAJE;
-				actor.animation = left;
-			}else {
-				actor.posicion.x = (actor.posicion.x + 8);
-				actor.animation = left;
-			}*/
 		}else{
 			if (direccion==Direccion.oeste) {
 				actor.animation=leftStop;

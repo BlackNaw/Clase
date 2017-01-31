@@ -1,5 +1,6 @@
 package com.ivan.laberinto;
 
+import java.time.temporal.JulianFields;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -24,12 +25,12 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import comun.AnimationE;
 import comun.Disparo;
-//import comun.Disparo;
-import comun.Moneda;
+import comun.HUD;
 import comun.Posicion;
 import comun.Rectangulo;
 import comun.Sondeo;
 import elementos.Actor;
+import elementos.Moneda;
 import elementos.Puerta;
 
 public class MyGdxGame extends ApplicationAdapter {
@@ -50,7 +51,7 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	Actor actor;
 
-	Texture pantalla;
+	//Texture pantalla;
 
 	ArrayList<Rectangulo> muro = new ArrayList<Rectangulo>();
 
@@ -62,11 +63,13 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	ArrayList<Disparo> disparos = new ArrayList<Disparo>();
 
+	HUD hud;
+	
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
-		pantalla = new Texture("stone-wall-tiled-multiple.png");
-		sprite = new Sprite(pantalla);
+		//pantalla = new Texture("stone-wall-tiled-multiple.png");
+//		sprite = new Sprite(pantalla);
 		// TODO las animaciones no van bien
 		Animation animacion = new Animation(1 / 30f,
 				new TextureAtlas(Gdx.files.internal("coinAtlas/COIN.atlas")).findRegions("COIN"));
@@ -81,6 +84,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		obtenerElementosMapa();
 		modeda.colocar();
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+		hud = new HUD(actor);
 	}
 
 	private void obtenerElementosMapa() {
@@ -136,13 +140,14 @@ public class MyGdxGame extends ApplicationAdapter {
 		camara.position.y = actor.posicion.y;
 		camara.update();
 		batch.setProjectionMatrix(camara.combined);
-		batch.begin();
-		sprite.draw(batch);
-		batch.end();
 		tiledMapRenderer.setView(camara);
 		tiledMapRenderer.render();
 		escenario.act();
 		escenario.draw();
+		batch.begin();
+//		sprite.draw(batch);
+		hud.pintar(batch, camara);
+		batch.end();
 	}
 
 	private void crearDisparo() {
@@ -175,6 +180,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	private void comprobarMoneda() {
 		if (actor.comprobarColision(modeda.cuerpo)) {
 			modeda.colocar();
+			actor.monedas++;
 		}
 	}
 
